@@ -1,0 +1,13 @@
+{
+    "name": "Devdog.General.Localization.Editors",
+    "references": [
+        "Devdog.General",
+        "Devdog.General.Editors",
+        "Devdog.General.Localization",
+        "Devdog.General.Serialization"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": []
+}

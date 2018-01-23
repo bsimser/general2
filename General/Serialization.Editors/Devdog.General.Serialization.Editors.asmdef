@@ -1,0 +1,12 @@
+{
+    "name": "Devdog.General.Serialization.Editors",
+    "references": [
+        "Devdog.General",
+        "Devdog.General.Editors",
+        "Devdog.General.Serialization"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": []
+}

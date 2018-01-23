@@ -1,0 +1,8 @@
+{
+    "name": "Devdog.General.Interaction",
+    "references": [
+        "Devdog.General"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": []
+}

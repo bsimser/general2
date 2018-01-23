@@ -1,0 +1,12 @@
+{
+    "name": "Devdog.General.Interaction.Editors",
+    "references": [
+        "Devdog.General",
+        "Devdog.General.Editors",
+        "Devdog.General.Interaction"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": []
+}

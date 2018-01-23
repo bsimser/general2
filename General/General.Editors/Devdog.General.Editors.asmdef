@@ -1,0 +1,10 @@
+{
+    "name": "Devdog.General.Editors",
+    "references": [
+        "Devdog.General"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": []
+}

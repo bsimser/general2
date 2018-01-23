@@ -1,0 +1,14 @@
+{
+    "name": "Devdog.General.Editors.Internal",
+    "references": [
+        "Devdog.General",
+        "Devdog.General.Editors",
+        "Devdog.General.Localization",
+        "Devdog.General.Interaction",
+        "Devdog.General.Serialization"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": []
+}
