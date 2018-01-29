@@ -103,7 +103,6 @@
     <Content Include="Relevancy\Interfaces\IObjectRelevancy.cs.meta" />
     <Content Include="Relevancy\ObjectDistanceRelevancy.cs.meta" />
     <Content Include="Relevancy\ObjectNullRelevancy.cs.meta" />
-    <Content Include="Triggers\Editor.meta" />
     <Content Include="Triggers\IgnoreRangeTriggerRangeHandler.cs.meta" />
     <Content Include="Triggers\Interfaces.meta" />
     <Content Include="Triggers\Interfaces\ITriggerCallbacks.cs.meta" />

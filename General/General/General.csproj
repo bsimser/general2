@@ -99,6 +99,7 @@
     <Compile Include="Misc\Pool\GameObjectPool.cs" />
     <Compile Include="Misc\Pool\Interfaces\IPoolable.cs" />
     <Compile Include="Misc\Pool\PoolBase.cs" />
+    <Compile Include="Misc\SinWave.cs" />
     <Compile Include="Misc\Timer\FakeTimerHelper.cs" />
     <Compile Include="Misc\Timer\Interfaces\ITimerHelper.cs" />
     <Compile Include="Misc\Timer\TimerHelper.cs" />

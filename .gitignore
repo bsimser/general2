@@ -212,8 +212,6 @@ ModelManifest.xml
 
 .idea/
 
-APIReference/_site
-
 _BUILD_Debug/
 _BUILD_Release/
 bin/

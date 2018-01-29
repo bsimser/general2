@@ -40,10 +40,10 @@ namespace Devdog.General
 
         protected virtual void OnDestroy()
         {
-            foreach (var character in _usingCharacters)
+            for (int i = _usingCharacters.Count - 1; i >= 0; i--)
             {
                 // Try to un-use the collection. If not the server will have to clean up on disconnect.
-                UnUse(character);
+                UnUse(_usingCharacters[i]);
 
                 Destroy(GetComponent<ITriggerInputHandler>() as UnityEngine.Component);
                 Destroy(GetComponent<ITriggerRangeHandler>() as UnityEngine.Component);
@@ -133,7 +133,7 @@ namespace Devdog.General
             return true;
         }
 
-
+        [Server]
         public virtual void Server_Use(Character character)
         {
             if (isServer)
@@ -149,6 +149,7 @@ namespace Devdog.General
             NotifyTriggerUsed(character);
         }
 
+        [Server]
         public virtual void Server_UnUse(Character character)
         {
             NotifyTriggerUnUsed(character);
