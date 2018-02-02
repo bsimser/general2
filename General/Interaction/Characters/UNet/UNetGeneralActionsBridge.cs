@@ -34,7 +34,11 @@ namespace Devdog.General
         public void Cmd_RequestUseTrigger(RequestUseTriggerMessage data)
         {
             DevdogLogger.LogVerbose("[UNet][Server] Client with netID " + netId + " requested to use trigger...", this);
-
+            if (data.triggerIdentity == null)
+            {
+                return;
+            }
+            
             var trigger = data.triggerIdentity.GetComponent<ITrigger>();
             if (trigger != null)
             {
