@@ -10,7 +10,6 @@ namespace Devdog.General.Editors.GameRules
         {
             FindManagerOfTypeOrCreateIssue<AudioManager>();
             FindManagerOfTypeOrCreateIssue<GeneralSettingsManager>();
-            FindManagerOfTypeOrCreateIssue<PlayerManager>();
             FindManagerOfTypeOrCreateIssue<InputManager>();
             FindManagerOfTypeOrCreateIssue<LocalizationManager>();
         }

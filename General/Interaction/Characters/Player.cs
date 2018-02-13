@@ -9,7 +9,7 @@ namespace Devdog.General
     public partial class Player : Character
     {
         [SerializeField]
-        private bool _initPlayerOnAwake = true;
+        private bool _initPlayerOnStart = true;
         
         public BestTriggerSelectorBase triggerSelector;
         
@@ -18,17 +18,16 @@ namespace Devdog.General
         protected override void Awake()
         {
             base.Awake();
-            
-            if (_initPlayerOnAwake)
-            {
-                RegisterPlayerAsCurrentPlayer();
-            }
         }
 
         protected override void Start()
         {
             base.Start();
-
+            if (_initPlayerOnStart)
+            {
+                RegisterPlayerAsCurrentPlayer();
+            }
+            
             StartCoroutine(SelectBestTrigger());
             InputManager.OnPlayerInputChanged += OnPlayerInputChanged;
         }
@@ -51,7 +50,7 @@ namespace Devdog.General
 
         public void RegisterPlayerAsCurrentPlayer()
         {
-            PlayerManager.instance.currentPlayer = this;
+            PlayerManager.currentPlayer = this;
         }
         
         protected virtual void OnPlayerInputChanged(bool isInputLimited)

@@ -3,14 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace Devdog.General
 {
     public partial class AudioManager : ManagerBase<AudioManager>
     {
+        [SerializeField]
+        private int _reserveAudioSources = 8;
+
+        [SerializeField]
+        private AudioMixerGroup _audioMixerGroup;
+        
         private static AudioSource[] _audioSources;
         private static GameObject _audioSourceGameObject;
-
         private static Queue<AudioClipInfo> _audioQueue = new Queue<AudioClipInfo>();
 
         protected override void Awake()
@@ -20,7 +26,7 @@ namespace Devdog.General
             StartCoroutine(WaitFramesAndEnable(5));
             enabled = false; // Set to enabled at start, initialize, then enable (to avoid playing sound during initialization)
 
-            _audioQueue = new Queue<AudioClipInfo>(GeneralSettingsManager.instance.settings.reserveAudioSources);
+            _audioQueue = new Queue<AudioClipInfo>(_reserveAudioSources);
             CreateAudioSourcePool();
         }
 
@@ -44,7 +50,7 @@ namespace Devdog.General
 
         private void CreateAudioSourcePool()
         {
-            _audioSources = new AudioSource[GeneralSettingsManager.instance.settings.reserveAudioSources];
+            _audioSources = new AudioSource[_reserveAudioSources];
 
             _audioSourceGameObject = new GameObject("_AudioSources");
             _audioSourceGameObject.transform.SetParent(transform);
@@ -53,7 +59,7 @@ namespace Devdog.General
             for (int i = 0; i < _audioSources.Length; i++)
             {
                 _audioSources[i] = _audioSourceGameObject.AddComponent<AudioSource>();
-                _audioSources[i].outputAudioMixerGroup = GeneralSettingsManager.instance.settings.audioMixerGroup;
+                _audioSources[i].outputAudioMixerGroup = _audioMixerGroup;
             }
         }
 

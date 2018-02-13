@@ -22,7 +22,7 @@ namespace Devdog.General
 
         protected virtual void WindowOnHide()
         {
-            Server_UnUse(PlayerManager.instance.currentPlayer);
+            Server_UnUse(PlayerManager.currentPlayer);
         }
 
         protected virtual void WindowOnShow()

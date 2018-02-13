@@ -28,7 +28,7 @@ namespace Devdog.General.UI
 
         public Player player
         {
-            get { return PlayerManager.instance.currentPlayer; }
+            get { return PlayerManager.currentPlayer; }
         }
 
         protected virtual void Awake()

@@ -136,14 +136,11 @@ namespace Devdog.General
         [Server]
         public virtual void Server_Use(Character character)
         {
-            if (isServer)
+            if (character.currentTrigger != null)
             {
-                if (character.currentTrigger != null)
-                {
-                    // If this player is already using a collection unuse it and use this one.
-                    // NOTE: ForceUnUse could unuse a trigger that can't be un-used... But calling UnUse() could fail
-                    character.currentTrigger.Server_UnUse(character);
-                }
+                // If this player is already using a collection unuse it and use this one.
+                // NOTE: ForceUnUse could unuse a trigger that can't be un-used... But calling UnUse() could fail
+                character.currentTrigger.Server_UnUse(character);
             }
 
             NotifyTriggerUsed(character);

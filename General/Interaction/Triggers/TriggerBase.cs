@@ -41,11 +41,6 @@ namespace Devdog.General
 
         protected virtual void OnDestroy()
         {
-            if (PlayerManager.instance == null)
-            {
-                return; // No need to reset, the player has already been destroyed..
-            }
-
             UnUse();
 
             Destroy(GetComponent<ITriggerInputHandler>() as UnityEngine.Component);
@@ -54,7 +49,7 @@ namespace Devdog.General
 
         public virtual bool Toggle()
         {
-            return Toggle(PlayerManager.instance.currentPlayer);
+            return Toggle(PlayerManager.currentPlayer);
         }
 
         public virtual bool Toggle(Character character)
@@ -69,7 +64,7 @@ namespace Devdog.General
 
         public bool CanUse()
         {
-            return CanUse(PlayerManager.instance.currentPlayer);
+            return CanUse(PlayerManager.currentPlayer);
         }
 
         public virtual bool CanUse(Character character)
@@ -88,7 +83,7 @@ namespace Devdog.General
 
         public bool CanUnUse()
         {
-            return CanUnUse(PlayerManager.instance.currentPlayer);
+            return CanUnUse(PlayerManager.currentPlayer);
         }
 
         public abstract void Server_Use(Character character);
@@ -110,14 +105,14 @@ namespace Devdog.General
 
         public bool Use()
         {
-            return Use(PlayerManager.instance.currentPlayer);
+            return Use(PlayerManager.currentPlayer);
         }
 
         public abstract bool Use(Character character);
 
         public bool UnUse()
         {
-            return UnUse(PlayerManager.instance.currentPlayer);
+            return UnUse(PlayerManager.currentPlayer);
         }
 
         public abstract bool UnUse(Character character);

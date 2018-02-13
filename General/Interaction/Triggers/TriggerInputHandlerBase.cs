@@ -58,7 +58,7 @@ namespace Devdog.General
         
         public virtual void Use()
         {
-            Use(PlayerManager.instance.currentPlayer);
+            Use(PlayerManager.currentPlayer);
         }
     }
 }

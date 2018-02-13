@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.Audio;
 
 namespace Devdog.General
 {
@@ -14,11 +13,6 @@ namespace Devdog.General
         [Header("Logging")]
         [Category("Logging")]
         public DevdogLogger.LogType minimalLogType;
-
-        [Header("Audio")]
-        [Category("Audio")]
-        public int reserveAudioSources = 8;
-        public AudioMixerGroup audioMixerGroup;
 
         [Category("Editor & Testing")]
         [Header("Testing")]

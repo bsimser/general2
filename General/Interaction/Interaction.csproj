@@ -66,6 +66,7 @@
     <Compile Include="Relevancy\ObjectNullRelevancy.cs" />
     <Compile Include="Triggers\IgnoreRangeTriggerRangeHandler.cs" />
     <Compile Include="Triggers\Interfaces\ITriggerCallbacks.cs" />
+    <Compile Include="Triggers\Interfaces\ITriggerColliderUse.cs" />
     <Compile Include="Triggers\Interfaces\ITriggerInputHandler.cs" />
     <Compile Include="Triggers\Interfaces\ITriggerRangeHandler.cs" />
     <Compile Include="Triggers\ITrigger.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="Triggers\TriggerRangeHandler2D.cs" />
     <Compile Include="Triggers\UI\TriggerUI.cs" />
     <Compile Include="Triggers\UNet\UNetTrigger.cs" />
+    <Compile Include="Triggers\UNet\UNetTriggerColliderUse.cs" />
     <Compile Include="Triggers\UNet\UNetTriggerVisuals.cs" />
     <Compile Include="Triggers\Utilities\TriggerUtility.cs" />
   </ItemGroup>
