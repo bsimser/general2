@@ -10,7 +10,7 @@ using System.Text.RegularExpressions;
 using Devdog.General.Editors.ReflectionDrawers;
 using UnityEditor;
 
-namespace Devdog.General.Editors.GameRules
+namespace Devdog.General2.Editors.GameRules
 {
     public class MonoBehaviourScriptNameRule : GameRuleBase
     {

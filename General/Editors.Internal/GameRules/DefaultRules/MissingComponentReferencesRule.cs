@@ -6,7 +6,7 @@ using Devdog.General2.Editors.GameRules;
 using UnityEditor;
 using UnityEngine;
 
-namespace Assets.Devdog.General.Editor.GameRules.DefaultRules
+namespace Devdog.General2.Editors.GameRules
 {
     public class MissingComponentReferencesRule : GameRuleBase
     {
@@ -24,6 +24,10 @@ namespace Assets.Devdog.General.Editor.GameRules.DefaultRules
                         issues.Add(new GameRuleIssue("Missing component on object (" + obj.name + ")", MessageType.Warning, new GameRuleAction("Select object", () =>
                         {
                             Selection.activeGameObject = o;
+                        }), new GameRuleAction("Select component", () =>
+                        {
+                            
+                            Selection.objects = new[] {comp};
                         })));
                     }
                 }
