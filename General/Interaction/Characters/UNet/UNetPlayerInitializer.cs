@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
 
-namespace Devdog.General
+namespace Devdog.General2
 {
     [RequireComponent(typeof(Player))]
     public sealed class UNetPlayerInitializer : MonoBehaviour

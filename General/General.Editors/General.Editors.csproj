@@ -108,7 +108,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Devdog.General.Editors.asmdef" />
+    <Content Include="Devdog.General2.Editors.asmdef" />
     <Content Include="Editor\Attributes.meta" />
     <Content Include="Editor\Attributes\CustomDrawerAttribute.cs.meta" />
     <Content Include="Editor\Attributes\CustomObjectPickerAttribute.cs.meta" />

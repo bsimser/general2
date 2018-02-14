@@ -2,12 +2,24 @@
 using UnityEditor;
 using System;
 
-namespace Devdog.General.Editors
+namespace Devdog.General2.Editors
 {
     [CustomEditor(typeof(TriggerRangeHandler), true)]
     [CanEditMultipleObjects]
     public class TriggerRangeHandlerEditor : Editor
     {
+        public override void OnInspectorGUI()
+        {
+            base.OnInspectorGUI();
+            
+            var t = (TriggerRangeHandler) target;
+            var s = t.GetComponent<SphereCollider>();
+            if (s != null)
+            {
+                s.radius = t.useRange;
+            }
+        }
+        
         [DrawGizmo(GizmoType.InSelectionHierarchy)]
         public static void DrawRangeHandler(TriggerRangeHandler rangeHandler, GizmoType gizmoType)
         {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Devdog.General.ThirdParty.FullSerializer;
+using Devdog.General2.ThirdParty.FullSerializer;
 using UnityEngine;
 
-namespace Devdog.General
+namespace Devdog.General2
 {
     public class fsUnityEngineObjectConverter : fsConverter
     {

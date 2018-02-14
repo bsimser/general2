@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace Devdog.General
+namespace Devdog.General2
 {
     public class ComponentPool<T> : PoolBase<T> where T : class, IPoolable
     {

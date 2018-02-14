@@ -1,4 +1,4 @@
-﻿namespace Devdog.General.ThirdParty.FullSerializer {
+﻿namespace Devdog.General2.ThirdParty.FullSerializer {
     /// <summary>
     /// Controls how the reflected converter handles member serialization.
     /// </summary>

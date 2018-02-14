@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Devdog.General
+namespace Devdog.General2
 {
     public class TriggerInputHandler : TriggerInputHandlerBase
     {

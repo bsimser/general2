@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace Devdog.General
+namespace Devdog.General2
 {
     public partial class InputManager : ManagerBase<InputManager>
     {

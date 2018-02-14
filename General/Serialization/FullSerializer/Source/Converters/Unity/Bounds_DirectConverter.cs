@@ -3,13 +3,13 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Devdog.General.ThirdParty.FullSerializer {
+namespace Devdog.General2.ThirdParty.FullSerializer {
     partial class fsConverterRegistrar {
         public static Internal.DirectConverters.Bounds_DirectConverter Register_Bounds_DirectConverter;
     }
 }
 
-namespace Devdog.General.ThirdParty.FullSerializer.Internal.DirectConverters {
+namespace Devdog.General2.ThirdParty.FullSerializer.Internal.DirectConverters {
     public class Bounds_DirectConverter : fsDirectConverter<Bounds> {
         protected override fsResult DoSerialize(Bounds model, Dictionary<string, fsData> serialized) {
             var result = fsResult.Success;

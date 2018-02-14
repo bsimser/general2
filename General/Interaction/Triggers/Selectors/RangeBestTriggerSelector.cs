@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Devdog.General
+namespace Devdog.General2
 {
     [CreateAssetMenu(menuName = "Devdog/Range trigger selector")]
     public class RangeBestTriggerSelector : BestTriggerSelectorBase

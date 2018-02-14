@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace Devdog.General.UI
+namespace Devdog.General2.UI
 {
     public static class UIWindowUtility
     {

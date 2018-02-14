@@ -39,7 +39,7 @@ namespace System {
 }
 #endif
 
-namespace Devdog.General.ThirdParty.FullSerializer.Internal {
+namespace Devdog.General2.ThirdParty.FullSerializer.Internal {
     /// <summary>
     /// This wraps reflection types so that it is portable across different Unity runtimes.
     /// </summary>

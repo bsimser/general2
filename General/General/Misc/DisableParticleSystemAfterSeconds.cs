@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Devdog.General
+namespace Devdog.General2
 {
     [RequireComponent(typeof(ParticleSystem))]
     public class DisableParticleSystemAfterSeconds : MonoBehaviour

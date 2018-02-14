@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Devdog.General
+namespace Devdog.General2
 {
     /// <summary>
     /// Used to detect wether an object is relevant to the game or not. 

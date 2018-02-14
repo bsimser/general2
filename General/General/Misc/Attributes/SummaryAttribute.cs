@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Devdog.General
+namespace Devdog.General2
 {
     /// <summary>
     /// When used this field will show in inside the node, as well as the properties sidebar.

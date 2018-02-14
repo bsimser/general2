@@ -3,10 +3,10 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-using Devdog.General.ThirdParty.FullSerializer;
-using Devdog.General.ThirdParty.FullSerializer.Internal;
+using Devdog.General2.ThirdParty.FullSerializer;
+using Devdog.General2.ThirdParty.FullSerializer.Internal;
 
-namespace Devdog.General
+namespace Devdog.General2
 {
     public static class JsonSerializer
     {

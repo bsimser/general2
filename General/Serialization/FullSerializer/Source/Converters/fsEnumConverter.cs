@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Devdog.General.ThirdParty.FullSerializer.Internal {
+namespace Devdog.General2.ThirdParty.FullSerializer.Internal {
     /// <summary>
     /// Serializes and deserializes enums by their current name.
     /// </summary>

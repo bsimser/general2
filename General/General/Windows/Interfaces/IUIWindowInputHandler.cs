@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Devdog.General.UI
+namespace Devdog.General2.UI
 {
     public interface IUIWindowInputHandler
     {

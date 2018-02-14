@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Devdog.General
+namespace Devdog.General2
 {
     public partial class Character : MonoBehaviour
     {

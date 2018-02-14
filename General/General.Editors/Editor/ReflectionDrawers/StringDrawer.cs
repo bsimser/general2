@@ -5,7 +5,7 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
-namespace Devdog.General.Editors.ReflectionDrawers
+namespace Devdog.General2.Editors.ReflectionDrawers
 {
     public sealed class StringDrawer : SimpleValueDrawer
     {

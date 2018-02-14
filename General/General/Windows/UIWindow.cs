@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Devdog.General.UI
+namespace Devdog.General2.UI
 {
     public partial class UIWindow : MonoBehaviour
     {

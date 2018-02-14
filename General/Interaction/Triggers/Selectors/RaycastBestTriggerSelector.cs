@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Devdog.General
+namespace Devdog.General2
 {
     [CreateAssetMenu(menuName = "Devdog/Raycast trigger selector")]
     public class RaycastBestTriggerSelector : BestTriggerSelectorBase

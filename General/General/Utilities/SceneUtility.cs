@@ -11,7 +11,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 #endif
 
-namespace Devdog.General
+namespace Devdog.General2
 {
     public static class SceneUtility
     {

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Reflection;
-using Devdog.General.Editors.ReflectionDrawers;
+using Devdog.General2.Editors.ReflectionDrawers;
 using UnityEngine;
 using UnityEditor;
 
-namespace Devdog.General.Editors
+namespace Devdog.General2.Editors
 {
     public class FoldoutBlock : IDisposable
     {

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Devdog.General.ThirdParty.FullSerializer.Internal;
+using Devdog.General2.ThirdParty.FullSerializer.Internal;
 
-namespace Devdog.General.ThirdParty.FullSerializer {
+namespace Devdog.General2.ThirdParty.FullSerializer {
     /// <summary>
     /// This class allows arbitrary code to easily register global converters. To add a converter,
     /// simply declare a new field called "Register_*" that stores the type of converter you would

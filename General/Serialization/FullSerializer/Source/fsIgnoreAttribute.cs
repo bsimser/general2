@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Devdog.General.ThirdParty.FullSerializer {
+namespace Devdog.General2.ThirdParty.FullSerializer {
     /// <summary>
     /// The given property or field annotated with [JsonIgnore] will not be serialized.
     /// </summary>

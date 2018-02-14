@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.Assertions;
 
-namespace Devdog.General
+namespace Devdog.General2
 {
     public partial class TriggerRangeHandler2D : MonoBehaviour, ITriggerRangeHandler
     {

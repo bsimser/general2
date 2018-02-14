@@ -1,9 +1,0 @@
-{
-    "name": "Devdog.General.Localization",
-    "references": [
-        "Devdog.General",
-        "Devdog.General.Serialization"
-    ],
-    "includePlatforms": [],
-    "excludePlatforms": []
-}

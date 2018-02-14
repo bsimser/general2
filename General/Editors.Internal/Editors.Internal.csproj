@@ -75,7 +75,7 @@
     <Compile Include="RateAssetEditorWindow.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Devdog.General.Editors.Internal.asmdef" />
+    <Content Include="Devdog.General2.Editors.Internal.asmdef" />
     <Content Include="EditorStyles\DevdogLogo.png" />
     <Content Include="EditorStyles\DevdogLogo.png.meta" />
     <Content Include="EditorStyles\Documentation.png" />

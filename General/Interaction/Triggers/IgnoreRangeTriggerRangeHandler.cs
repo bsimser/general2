@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-namespace Devdog.General
+namespace Devdog.General2
 {
     public sealed class IgnoreRangeTriggerRangeHandler : MonoBehaviour, ITriggerRangeHandler
     {

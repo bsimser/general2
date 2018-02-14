@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 
 
-namespace Devdog.General.Editors
+namespace Devdog.General2.Editors
 {
     [CustomEditor(typeof(BetterScriptableObject), true)]
     public class BetterScriptableObjectEditor : BetterUnityEditorBase

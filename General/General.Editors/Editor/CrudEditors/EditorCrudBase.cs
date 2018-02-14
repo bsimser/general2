@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-namespace Devdog.General.Editors
+namespace Devdog.General2.Editors
 {
     public abstract partial class EditorCrudBase<T> : IEditorCrud where T : class
     {
@@ -29,6 +29,7 @@ namespace Devdog.General.Editors
         
         protected Rect sidebarRowElementOffset;
         private readonly Color _createColor = new Color(0.4f, 1.0f, 0.4f, 0.8f);
+        private readonly List<Action> _deferredActions = new List<Action>();
 
         public bool isSearching
         {
@@ -46,6 +47,11 @@ namespace Devdog.General.Editors
             canDeleteItems = true;
             canReOrderItems = false;
             hideCreateItem = false;
+        }
+        
+        protected void DeferAction(Action action)
+        {
+            _deferredActions.Add(action);
         }
 
         /// <summary>
@@ -77,6 +83,14 @@ namespace Devdog.General.Editors
 
             EditorGUIUtility.labelWidth = 0;
             EditorGUILayout.EndScrollView();
+            
+            foreach (var method in _deferredActions)
+            {
+                method?.Invoke();
+            }
+
+            _deferredActions.Clear();
+            
             EditorGUILayout.EndHorizontal();
         }
 
@@ -102,15 +116,13 @@ namespace Devdog.General.Editors
         /// </summary>
         public virtual void AddItem(T item, bool editOnceAdded = true)
         {
-            // Strange construction I know..
-            // Bypass read-only problem on scriptable object.
             crudList.Add(item);
-            window.Repaint();
-
             if (editOnceAdded)
             {
                 EditItem(item);
             }
+            
+            window.Repaint();
         }
 
         public virtual void RemoveItem(T item)
@@ -120,11 +132,14 @@ namespace Devdog.General.Editors
                 selectedItem = null;
             }
 
-            crudList.Remove(item);
-            window.Repaint();
+            DeferAction(() =>
+            {
+                crudList.Remove(item);
+                window.Repaint();
+            });
         }
 
-        public abstract void DuplicateItem(T index);
+        public abstract T DuplicateItem(T index);
 
         public virtual void EditItem(T item)
         {
@@ -345,13 +360,10 @@ namespace Devdog.General.Editors
 
             int x = 0;
             _searchResultCount = 0;
-            bool nullInList = false;
             foreach (var item in crudList)
             {
                 if (item == null)
                 {
-                    x++;
-                    nullInList = true;
                     continue;                    
                 }
 
@@ -375,15 +387,6 @@ namespace Devdog.General.Editors
 
                 GUI.color = Color.white;
                 x++;
-            }
-
-            if (nullInList)
-            {
-                // Note, this only remvoes a single null ref.
-                if (crudList.Contains(null))
-                {
-                    crudList.Remove(null);
-                }
             }
 
             if (_searchResultCount == 0 && isSearching)

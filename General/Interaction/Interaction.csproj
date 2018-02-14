@@ -82,9 +82,9 @@
     <Compile Include="Triggers\TriggerRangeHandler.cs" />
     <Compile Include="Triggers\TriggerRangeHandler2D.cs" />
     <Compile Include="Triggers\UI\TriggerUI.cs" />
+    <Compile Include="Triggers\TriggerVisuals.cs" />
     <Compile Include="Triggers\UNet\UNetTrigger.cs" />
     <Compile Include="Triggers\UNet\UNetTriggerColliderUse.cs" />
-    <Compile Include="Triggers\UNet\UNetTriggerVisuals.cs" />
     <Compile Include="Triggers\Utilities\TriggerUtility.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -100,7 +100,7 @@
     <Content Include="Characters\UNet\Messages\RequestUseTriggerMessage.cs.meta" />
     <Content Include="Characters\UNet\UNetGeneralActionsBridge.cs.meta" />
     <Content Include="Characters\UNet\UNetPlayerInitializer.cs.meta" />
-    <Content Include="Devdog.General.Interaction.asmdef" />
+    <Content Include="Devdog.General2.Interaction.asmdef" />
     <Content Include="Relevancy\Interfaces.meta" />
     <Content Include="Relevancy\Interfaces\IObjectRelevancy.cs.meta" />
     <Content Include="Relevancy\ObjectDistanceRelevancy.cs.meta" />
@@ -126,8 +126,8 @@
     <Content Include="Triggers\UI.meta" />
     <Content Include="Triggers\UI\TriggerUI.cs.meta" />
     <Content Include="Triggers\UNet.meta" />
+    <Content Include="Triggers\TriggerVisuals.cs.meta" />
     <Content Include="Triggers\UNet\UNetTrigger.cs.meta" />
-    <Content Include="Triggers\UNet\UNetTriggerVisuals.cs.meta" />
     <Content Include="Triggers\Utilities.meta" />
     <Content Include="Triggers\Utilities\TriggerUtility.cs.meta" />
   </ItemGroup>

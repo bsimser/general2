@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 
-namespace Devdog.General.UI
+namespace Devdog.General2.UI
 {
     [RequireComponent(typeof(UIWindow))]
     public partial class DraggableWindow : MonoBehaviour, IBeginDragHandler, IDragHandler, IPointerDownHandler

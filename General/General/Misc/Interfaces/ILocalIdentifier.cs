@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Devdog.General
+namespace Devdog.General2
 {
     public interface ILocalIdentifier : IEquatable<ILocalIdentifier>
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Devdog.General
+namespace Devdog.General2
 {
     /// <summary>
     /// When used this field will not be displayed in the properties sidebar of the node editor.

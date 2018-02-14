@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace Devdog.General.ThirdParty.FullSerializer.Internal {
+namespace Devdog.General2.ThirdParty.FullSerializer.Internal {
     /// <summary>
     /// Caches type name to type lookups. Type lookups occur in all loaded assemblies.
     /// </summary>

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Devdog.General.ThirdParty.FullSerializer.Internal;
+using Devdog.General2.ThirdParty.FullSerializer.Internal;
 
-namespace Devdog.General.ThirdParty.FullSerializer {
+namespace Devdog.General2.ThirdParty.FullSerializer {
     /// <summary>
     /// The AOT compilation manager
     /// </summary>

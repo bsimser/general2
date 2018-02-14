@@ -104,7 +104,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Devdog.General.Serialization.asmdef" />
+    <Content Include="Devdog.General2.Serialization.asmdef" />
     <Content Include="FullSerializer\Devdog.General.ThirdParty.FullSerializer.asmdef" />
     <Content Include="FullSerializer\Devdog.General.ThirdParty.FullSerializer.asmdef.meta" />
     <Content Include="FullSerializer\Source.meta" />

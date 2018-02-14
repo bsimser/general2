@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Devdog.General
+namespace Devdog.General2
 {
     [DisallowMultipleComponent]
     public abstract class TriggerBase : MonoBehaviour, ITrigger // , IMouseCallbacks

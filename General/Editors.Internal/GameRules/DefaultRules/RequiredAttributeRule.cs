@@ -2,10 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
-using Devdog.General.Editors.ReflectionDrawers;
+using Devdog.General2.Editors.ReflectionDrawers;
 using UnityEditor;
 
-namespace Devdog.General.Editors.GameRules
+namespace Devdog.General2.Editors.GameRules
 {
     public class RequiredAttributeRule : GameRuleBase
     {

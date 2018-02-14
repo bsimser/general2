@@ -1,6 +1,6 @@
 ﻿using UnityEngine.Networking;
 
-namespace Devdog.General
+namespace Devdog.General2
 {
     public sealed class RequestUseTriggerMessage : MessageBase
     {

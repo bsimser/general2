@@ -1,7 +1,7 @@
 ﻿using System;
 using Object = UnityEngine.Object;
 
-namespace Devdog.General.Editors
+namespace Devdog.General2.Editors
 {
     [CustomObjectPicker(typeof(UnityEngine.Object), -10)]
     public class UnityEngineObjectPickerEditor : ObjectPickerBaseEditor

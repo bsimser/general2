@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Devdog.General.ThirdParty.FullSerializer.Internal {
+namespace Devdog.General2.ThirdParty.FullSerializer.Internal {
     public class fsPrimitiveConverter : fsConverter {
         public override bool CanProcess(Type type) {
             return

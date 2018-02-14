@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using Devdog.General.ThirdParty.FullSerializer.Internal;
+using Devdog.General2.ThirdParty.FullSerializer.Internal;
 
-namespace Devdog.General.ThirdParty.FullSerializer {
+namespace Devdog.General2.ThirdParty.FullSerializer {
     /// <summary>
     /// MetaType contains metadata about a type. This is used by the reflection serializer.
     /// </summary>

@@ -3,13 +3,13 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Devdog.General.ThirdParty.FullSerializer {
+namespace Devdog.General2.ThirdParty.FullSerializer {
     partial class fsConverterRegistrar {
         public static Internal.DirectConverters.RectOffset_DirectConverter Register_RectOffset_DirectConverter;
     }
 }
 
-namespace Devdog.General.ThirdParty.FullSerializer.Internal.DirectConverters {
+namespace Devdog.General2.ThirdParty.FullSerializer.Internal.DirectConverters {
     public class RectOffset_DirectConverter : fsDirectConverter<RectOffset> {
         protected override fsResult DoSerialize(RectOffset model, Dictionary<string, fsData> serialized) {
             var result = fsResult.Success;

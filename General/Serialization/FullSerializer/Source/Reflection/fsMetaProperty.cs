@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace Devdog.General.ThirdParty.FullSerializer.Internal {
+namespace Devdog.General2.ThirdParty.FullSerializer.Internal {
     /// <summary>
     /// A property or field on a MetaType. This unifies the FieldInfo and PropertyInfo classes.
     /// </summary>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Devdog.General.Editors.GameRules
+namespace Devdog.General2.Editors.GameRules
 {
     public interface IGameRule
     {

@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using UnityEditor;
-using Devdog.General.Localization;
+using Devdog.General2.Localization;
 
-namespace Devdog.General.Editors.GameRules
+namespace Devdog.General2.Editors.GameRules
 {
     public class DefaultManagersRule : ManagersRuleBase
     {

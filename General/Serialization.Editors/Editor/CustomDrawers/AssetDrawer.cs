@@ -2,7 +2,7 @@
 using System.Reflection;
 using UnityEngine;
 
-namespace Devdog.General.Editors.ReflectionDrawers
+namespace Devdog.General2.Editors.ReflectionDrawers
 {
     [CustomDrawer(typeof(Asset<>))]
     public class AssetDrawer : ChildrenValueDrawerBase

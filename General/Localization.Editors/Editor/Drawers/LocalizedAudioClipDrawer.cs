@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Reflection;
-using Devdog.General.Editors.ReflectionDrawers;
+using Devdog.General2.Editors.ReflectionDrawers;
 using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Devdog.General.Localization.Editors
+namespace Devdog.General2.Localization.Editors
 {
     [CustomDrawer(typeof(LocalizedAudioClip))]
     public class LocalizedAudioClipDrawer : LocalizedObjectDrawerBase<AudioClip, LocalizedAudioClip>

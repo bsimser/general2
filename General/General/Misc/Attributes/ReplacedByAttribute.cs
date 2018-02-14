@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Devdog.General
+namespace Devdog.General2
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct)]
     public class ReplacedByAttribute : Attribute

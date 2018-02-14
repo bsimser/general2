@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Devdog.General
+namespace Devdog.General2
 {
     [AttributeUsage(AttributeTargets.Field)]
     public class HideGroupAttribute : Attribute

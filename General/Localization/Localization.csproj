@@ -58,7 +58,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Devdog.General.Localization.asmdef" />
+    <Content Include="Devdog.General2.Localization.asmdef" />
     <Content Include="ExtensionMethods\AudioSourceExtensionMethods.cs.meta" />
     <Content Include="Interfaces\ILocalizedObject.cs.meta" />
   </ItemGroup>

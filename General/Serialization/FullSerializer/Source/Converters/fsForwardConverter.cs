@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Devdog.General.ThirdParty.FullSerializer {
+namespace Devdog.General2.ThirdParty.FullSerializer {
     /// <summary>
     /// This allows you to forward serialization of an object to one of its members. For example,
     ///
@@ -29,7 +29,7 @@ namespace Devdog.General.ThirdParty.FullSerializer {
     }
 }
 
-namespace Devdog.General.ThirdParty.FullSerializer.Internal {
+namespace Devdog.General2.ThirdParty.FullSerializer.Internal {
     public class fsForwardConverter : fsConverter {
         private string _memberName;
 

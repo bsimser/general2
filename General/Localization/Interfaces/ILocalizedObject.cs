@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Devdog.General.Localization
+namespace Devdog.General2.Localization
 {
     public interface ILocalizedObject<T> : ILocalizedObject 
         where T: UnityEngine.Object

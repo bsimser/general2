@@ -7,7 +7,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace Devdog.General.Editors
+namespace Devdog.General2.Editors
 {
     public static class ObjectPickerUtility
     {

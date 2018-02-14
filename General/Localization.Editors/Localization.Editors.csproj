@@ -67,7 +67,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Devdog.General.Localization.Editors.asmdef" />
+    <Content Include="Devdog.General2.Localization.Editors.asmdef" />
     <Content Include="Editor\ChangeKeyEditorWindow.cs.meta" />
     <Content Include="Editor\Drawers.meta" />
     <Content Include="Editor\Drawers\LocalizedAudioClipDrawer.cs.meta" />

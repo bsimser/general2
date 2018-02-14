@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Devdog.General.ThirdParty.FullSerializer {
+namespace Devdog.General2.ThirdParty.FullSerializer {
     /// <summary>
     /// The direct converter is similar to a regular converter, except that it targets specifically only one type.
     /// This means that it can be used without performance impact when discovering converters. It is strongly

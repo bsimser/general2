@@ -4,7 +4,7 @@ using System.IO;
 using UnityEditor;
 using System;
 
-namespace Devdog.General.Editors
+namespace Devdog.General2.Editors
 {
     public static class ScriptableObjectUtility
     {

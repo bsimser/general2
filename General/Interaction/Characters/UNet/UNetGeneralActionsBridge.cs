@@ -1,6 +1,6 @@
 ﻿using UnityEngine.Networking;
 
-namespace Devdog.General
+namespace Devdog.General2
 {
     public class UNetGeneralActionsBridge : NetworkBehaviour
     {
@@ -124,28 +124,28 @@ namespace Devdog.General
             }
         }
         
-        [ClientRpc]
-        private void Rpc_TriggerUsedByOtherClient(NetworkIdentity triggerIdentity)
-        {
-            DevdogLogger.LogVerbose("[UNet][Client] Server told us (netID: " + netId + ") that another client used a trigger with netID: " + triggerIdentity.netId, this);
-
-            var visuals = triggerIdentity.GetComponent<UNetTriggerVisuals>();
-            if (visuals != null)
-            {
-                visuals.DoVisuals();
-            }
-        }
-        
-        [ClientRpc]
-        private void Rpc_TriggerUnUsedByOtherClient(NetworkIdentity triggerIdentity)
-        {
-            DevdogLogger.LogVerbose("[UNet][Client] Server told us (netID: " + netId + ") that another client un-used a trigger with netID: " + triggerIdentity.netId, this);
-            
-            var visuals = triggerIdentity.GetComponent<UNetTriggerVisuals>();
-            if (visuals != null)
-            {
-                visuals.UndoVisuals();
-            }
-        }
+//        [ClientRpc]
+//        private void Rpc_TriggerUsedByOtherClient(NetworkIdentity triggerIdentity)
+//        {
+//            DevdogLogger.LogVerbose("[UNet][Client] Server told us (netID: " + netId + ") that another client used a trigger with netID: " + triggerIdentity.netId, this);
+//
+//            var visuals = triggerIdentity.GetComponent<UNetTriggerVisuals>();
+//            if (visuals != null)
+//            {
+//                visuals.DoVisuals();
+//            }
+//        }
+//        
+//        [ClientRpc]
+//        private void Rpc_TriggerUnUsedByOtherClient(NetworkIdentity triggerIdentity)
+//        {
+//            DevdogLogger.LogVerbose("[UNet][Client] Server told us (netID: " + netId + ") that another client un-used a trigger with netID: " + triggerIdentity.netId, this);
+//            
+//            var visuals = triggerIdentity.GetComponent<UNetTriggerVisuals>();
+//            if (visuals != null)
+//            {
+//                visuals.UndoVisuals();
+//            }
+//        }
     }
 }

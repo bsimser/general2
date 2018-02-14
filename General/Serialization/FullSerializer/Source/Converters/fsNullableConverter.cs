@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Devdog.General.ThirdParty.FullSerializer.Internal {
+namespace Devdog.General2.ThirdParty.FullSerializer.Internal {
     /// <summary>
     /// The reflected converter will properly serialize nullable types. However, we do it here
     /// instead as we can emit less serialization data.

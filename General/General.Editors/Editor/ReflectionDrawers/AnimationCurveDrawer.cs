@@ -6,7 +6,7 @@ using System.Text;
 using UnityEditor;
 using UnityEngine;
 
-namespace Devdog.General.Editors.ReflectionDrawers
+namespace Devdog.General2.Editors.ReflectionDrawers
 {
     public sealed class AnimationCurveDrawer : SimpleValueDrawer
     {

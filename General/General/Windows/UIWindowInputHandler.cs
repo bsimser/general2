@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Devdog.General.UI
+namespace Devdog.General2.UI
 {
     [RequireComponent(typeof(UIWindow))]
     public sealed class UIWindowInputHandler : MonoBehaviour, IUIWindowInputHandler

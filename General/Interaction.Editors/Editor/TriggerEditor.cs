@@ -3,7 +3,7 @@ using UnityEditor;
 using System;
 using System.Linq;
 
-namespace Devdog.General.Editors
+namespace Devdog.General2.Editors
 {
     [CustomEditor(typeof(Trigger), true)]
     [CanEditMultipleObjects]

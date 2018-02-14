@@ -1,8 +1,8 @@
 ﻿using System;
-using Devdog.General.Localization;
+using Devdog.General2.Localization;
 using UnityEngine;
 
-namespace Devdog.General.Localization
+namespace Devdog.General2.Localization
 {
     [Serializable]
     public class LocalizedAudioClipInfo

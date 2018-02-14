@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.Assertions;
 
-namespace Devdog.General.Editors.GameRules
+namespace Devdog.General2.Editors.GameRules
 {
     [AttributeUsage(AttributeTargets.Class)]
     public class HidesGameRuleAttribute : Attribute

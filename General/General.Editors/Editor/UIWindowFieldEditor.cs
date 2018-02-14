@@ -1,9 +1,9 @@
 ﻿using System;
-using Devdog.General.UI;
+using Devdog.General2.UI;
 using UnityEditor;
 using UnityEngine;
 
-namespace Devdog.General.Editors
+namespace Devdog.General2.Editors
 {
     [CustomPropertyDrawer(typeof(UIWindowField), true)]
     public class UIWindowFieldEditor : PropertyDrawer

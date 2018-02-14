@@ -7,7 +7,7 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine.EventSystems;
 
-namespace Devdog.General.Editors.GameRules
+namespace Devdog.General2.Editors.GameRules
 {
     public class MainCameraRule : GameRuleBase
     {

@@ -3,7 +3,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-namespace Devdog.General
+namespace Devdog.General2
 {
     [System.Serializable]
     public struct FMinMaxRange

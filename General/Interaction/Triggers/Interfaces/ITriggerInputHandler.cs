@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Devdog.General
+namespace Devdog.General2
 {
     public interface ITriggerInputHandler
     {

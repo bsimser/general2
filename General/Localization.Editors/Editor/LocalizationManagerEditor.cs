@@ -3,11 +3,11 @@ using System.Collections;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using Devdog.General.Editors;
+using Devdog.General2.Editors;
 using UnityEditor;
 using EditorUtility = UnityEditor.EditorUtility;
 
-namespace Devdog.General.Localization.Editors
+namespace Devdog.General2.Localization.Editors
 {
     [CustomEditor(typeof(LocalizationManager))]
     public class LocalizationManagerEditor : UnityEditor.Editor
@@ -33,7 +33,7 @@ namespace Devdog.General.Localization.Editors
 
                 if (string.IsNullOrEmpty(path) == false)
                 {
-                    var asset = ScriptableObjectUtility.CreateAsset<Devdog.General.Localization.LocalizationDatabase>(path, "MainLanguageDb.asset");
+                    var asset = ScriptableObjectUtility.CreateAsset<LocalizationDatabase>(path, "MainLanguageDb.asset");
                     var defaultDb = typeof(LocalizationManager).GetField("_defaultDatabase", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
                     defaultDb.SetValue(t, asset);
 

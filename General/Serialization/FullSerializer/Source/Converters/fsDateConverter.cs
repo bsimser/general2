@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace Devdog.General.ThirdParty.FullSerializer.Internal {
+namespace Devdog.General2.ThirdParty.FullSerializer.Internal {
     /// <summary>
     /// Supports serialization for DateTime, DateTimeOffset, and TimeSpan.
     /// </summary>

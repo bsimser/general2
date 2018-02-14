@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Audio;
 
-namespace Devdog.General
+namespace Devdog.General2
 {
     public partial class AudioManager : ManagerBase<AudioManager>
     {

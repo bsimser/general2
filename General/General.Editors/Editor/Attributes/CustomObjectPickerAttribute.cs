@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine.Assertions;
 
-namespace Devdog.General.Editors
+namespace Devdog.General2.Editors
 {
     [AttributeUsage(AttributeTargets.Class)]
     public class CustomObjectPickerAttribute : Attribute

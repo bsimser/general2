@@ -121,7 +121,7 @@
     <Compile Include="Windows\UIWindowVisuals.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Devdog.General.asmdef" />
+    <Content Include="Devdog.General2.asmdef" />
     <Content Include="Helpers\AnimatorHelper.cs.meta" />
     <Content Include="Integrations\Rewired\Devdog.General.Integration.Rewired.asmdef" />
     <Content Include="Windows\DraggableWindow.cs.meta" />

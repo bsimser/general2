@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections;
-using Devdog.General.UI;
+using Devdog.General2.UI;
 using UnityEditor;
 
-namespace Devdog.General.Editors
+namespace Devdog.General2.Editors
 {
     [CustomEditor(typeof(UIWindow), true)]
     [CanEditMultipleObjects]

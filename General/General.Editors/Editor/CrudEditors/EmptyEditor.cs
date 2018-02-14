@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace Devdog.General.Editors
+namespace Devdog.General2.Editors
 {
     public class EmptyEditor : IEditorCrud
     {
@@ -101,10 +101,12 @@ namespace Devdog.General.Editors
         {
             DrawToolbar();
 
-            for (int i = 0; i < childEditors.Count; i++)
+            foreach (var editor in childEditors)
             {
-                if (childEditors[i] == selectedEditor)
-                    childEditors[i].Draw();
+                if (editor == selectedEditor)
+                {
+                    editor.Draw();
+                }
             }
         }
 

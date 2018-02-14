@@ -6,7 +6,7 @@ using UnityEngine.Assertions;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace Devdog.General.UI
+namespace Devdog.General2.UI
 {
     public static class UIUtility
     {

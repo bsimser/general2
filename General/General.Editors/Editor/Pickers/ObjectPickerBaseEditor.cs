@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Devdog.General.Editors
+namespace Devdog.General2.Editors
 {
     public abstract class ObjectPickerBaseEditor : BetterEditorWindow
     {

@@ -5,7 +5,7 @@ using System.Text;
 using UnityEditor;
 using UnityEngine;
 
-namespace Devdog.General.Editors
+namespace Devdog.General2.Editors
 {
     public class BetterEditorWindow : UnityEditor.EditorWindow
     {

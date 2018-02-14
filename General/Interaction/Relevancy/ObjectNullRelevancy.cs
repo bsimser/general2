@@ -3,7 +3,7 @@
 using System;
 using UnityEngine;
 
-namespace Devdog.General
+namespace Devdog.General2
 {
     public sealed class ObjectNullRelevancy : IObjectRelevancy
     {

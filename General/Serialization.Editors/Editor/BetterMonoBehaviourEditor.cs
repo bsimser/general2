@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 
-namespace Devdog.General.Editors
+namespace Devdog.General2.Editors
 {
     [CustomEditor(typeof(BetterMonoBehaviour), true)]
     public class BetterMonoBehaviourEditor : BetterUnityEditorBase

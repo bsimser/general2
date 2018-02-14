@@ -56,7 +56,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Devdog.General.Serialization.Editors.asmdef" />
+    <Content Include="Devdog.General2.Serialization.Editors.asmdef" />
     <Content Include="Editor\CustomDrawers\AssetDrawer.cs.meta" />
   </ItemGroup>
   <ItemGroup>

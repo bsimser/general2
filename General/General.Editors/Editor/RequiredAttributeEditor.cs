@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-namespace Devdog.General.Editors
+namespace Devdog.General2.Editors
 {
     [CustomPropertyDrawer(typeof(RequiredAttribute))]
     public class RequiredAttributeEditor : PropertyDrawer

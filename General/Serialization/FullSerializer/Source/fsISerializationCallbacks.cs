@@ -8,7 +8,7 @@ using UnityEngine;
 using System.Reflection;
 #endif
 
-namespace Devdog.General.ThirdParty.FullSerializer {
+namespace Devdog.General2.ThirdParty.FullSerializer {
     /// <summary>
     /// Extend this interface on your type to receive notifications about serialization/deserialization events. If you don't
     /// have access to the type itself, then you can write an fsObjectProcessor instead.
@@ -42,7 +42,7 @@ namespace Devdog.General.ThirdParty.FullSerializer {
     }
 }
 
-namespace Devdog.General.ThirdParty.FullSerializer.Internal {
+namespace Devdog.General2.ThirdParty.FullSerializer.Internal {
     public class fsSerializationCallbackProcessor : fsObjectProcessor {
         public override bool CanProcess(Type type) {
             return typeof(fsISerializationCallbacks).IsAssignableFrom(type);

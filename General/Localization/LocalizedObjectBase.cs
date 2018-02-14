@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Devdog.General.Localization
+namespace Devdog.General2.Localization
 {
     public abstract class LocalizedObjectBase<T> : ILocalizedObject<T>
         where T : UnityEngine.Object

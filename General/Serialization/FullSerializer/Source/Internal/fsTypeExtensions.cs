@@ -9,7 +9,7 @@ using System.Reflection;
 using Devdog.General.ThirdParty.FullSerializer.Internal;
 #endif
 
-namespace Devdog.General.ThirdParty.FullSerializer {
+namespace Devdog.General2.ThirdParty.FullSerializer {
     public static class fsTypeExtensions {
         /// <summary>
         /// Returns a pretty name for the type in the style of one that you'd see in C# without the namespace.

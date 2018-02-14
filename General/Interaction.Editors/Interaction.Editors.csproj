@@ -53,7 +53,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Devdog.General.Interaction.Editors.asmdef" />
+    <Content Include="Devdog.General2.Interaction.Editors.asmdef" />
     <Content Include="Editor\TriggerEditor.cs.meta" />
     <Content Include="Editor\TriggerRangeHandlerEditor.cs.meta" />
   </ItemGroup>

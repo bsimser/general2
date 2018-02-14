@@ -8,7 +8,7 @@ using UnityEngine;
 using WinRTLegacy;
 #endif
 
-namespace Devdog.General
+namespace Devdog.General2
 {
     public static class ReflectionUtility 
     {

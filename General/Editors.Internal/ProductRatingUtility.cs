@@ -6,7 +6,7 @@ using System.Linq;
 using System.Net;
 using UnityEditor;
 
-namespace Devdog.General.Editors
+namespace Devdog.General2.Editors
 {
     public static class ProductRatingUtility
     {

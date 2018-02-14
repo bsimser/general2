@@ -1,4 +1,4 @@
-﻿namespace Devdog.General
+﻿namespace Devdog.General2
 {
     public interface ITriggerColliderUse
     {

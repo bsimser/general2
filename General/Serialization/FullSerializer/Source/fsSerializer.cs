@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using Devdog.General.ThirdParty.FullSerializer.Internal;
+using Devdog.General2.ThirdParty.FullSerializer.Internal;
 
 #if !UNITY_EDITOR && UNITY_WSA
 // For System.Reflection.TypeExtensions
 using System.Reflection;
 #endif
 
-namespace Devdog.General.ThirdParty.FullSerializer {
+namespace Devdog.General2.ThirdParty.FullSerializer {
     public class fsSerializer {
         #region Keys
         private static HashSet<string> _reservedKeywords;

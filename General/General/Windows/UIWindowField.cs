@@ -1,8 +1,8 @@
 ﻿using System;
-using Devdog.General.UI;
+using Devdog.General2.UI;
 using UnityEngine;
 
-namespace Devdog.General.UI
+namespace Devdog.General2.UI
 {
     [System.Serializable]
     public class UIWindowField : UIWindowField<UIWindow>

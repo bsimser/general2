@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Devdog.General.Editors.ReflectionDrawers;
+using Devdog.General2.Editors.ReflectionDrawers;
 using UnityEditor;
 using UnityEngine;
 
 
-namespace Devdog.General.Editors
+namespace Devdog.General2.Editors
 {
     public class BetterUnityEditorBase : Editor
     {

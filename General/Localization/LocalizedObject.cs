@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Devdog.General.Localization
+namespace Devdog.General2.Localization
 {
     [System.Serializable]
     public class LocalizedObject : LocalizedObjectBase<UnityEngine.Object>

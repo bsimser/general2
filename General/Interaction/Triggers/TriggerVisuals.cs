@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 
-namespace Devdog.General
+namespace Devdog.General2
 {
     [RequireComponent(typeof(Animator))]
-    public class UNetTriggerVisuals : MonoBehaviour, ITriggerCallbacks
+    public class TriggerVisuals : MonoBehaviour, ITriggerCallbacks
     {
         [SerializeField]
         private MotionInfo _useAnimation;

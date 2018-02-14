@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEditor;
 using System.Collections.Generic;
 
-namespace Devdog.General.Editors
+namespace Devdog.General2.Editors
 {
     public abstract class IntegrationHelperEditorBase : EditorWindow
     {
@@ -74,7 +74,7 @@ namespace Devdog.General.Editors
             GUILayout.Space(10);
 
             GUI.color = _grayishColor;
-            EditorGUILayout.LabelField(description, Devdog.General.Editors.EditorStyles.labelStyle);
+            EditorGUILayout.LabelField(description, EditorStyles.labelStyle);
             GUI.color = Color.white;
 
             if (showBox)

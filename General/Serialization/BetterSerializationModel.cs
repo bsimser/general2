@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
-namespace Devdog.General
+namespace Devdog.General2
 {
     public class BetterSerializationModel
     {

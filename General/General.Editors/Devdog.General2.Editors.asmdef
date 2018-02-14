@@ -1,7 +1,7 @@
 {
-    "name": "Devdog.General.Editors",
+    "name": "Devdog.General2.Editors",
     "references": [
-        "Devdog.General"
+        "Devdog.General2"
     ],
     "includePlatforms": [
         "Editor"

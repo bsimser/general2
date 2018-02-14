@@ -5,7 +5,7 @@
 using System.Reflection;
 #endif
 
-namespace Devdog.General.ThirdParty.FullSerializer.Internal {
+namespace Devdog.General2.ThirdParty.FullSerializer.Internal {
     public class fsTypeConverter : fsConverter {
         public override bool CanProcess(Type type) {
             return typeof(Type).IsAssignableFrom(type);

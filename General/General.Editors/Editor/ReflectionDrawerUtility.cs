@@ -7,7 +7,7 @@ using System.Runtime;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace Devdog.General.Editors.ReflectionDrawers
+namespace Devdog.General2.Editors.ReflectionDrawers
 {
     public static class ReflectionDrawerUtility
     {

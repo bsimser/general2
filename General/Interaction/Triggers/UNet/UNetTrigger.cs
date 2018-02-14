@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace Devdog.General
+namespace Devdog.General2
 {
     public class UNetTrigger : NetworkBehaviour, ITrigger
     {

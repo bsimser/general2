@@ -6,7 +6,7 @@ using System.Collections;
 using System.Reflection;
 #endif
 
-namespace Devdog.General.ThirdParty.FullSerializer.Internal {
+namespace Devdog.General2.ThirdParty.FullSerializer.Internal {
     public class fsReflectedConverter : fsConverter {
         public override bool CanProcess(Type type) {
             if (type.Resolve().IsArray ||

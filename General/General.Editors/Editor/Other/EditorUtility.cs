@@ -8,7 +8,7 @@ using System.CodeDom.Compiler;
 using System.IO;
 using UnityEngine.Assertions;
 
-namespace Devdog.General.Editors
+namespace Devdog.General2.Editors
 {
     using Object = UnityEngine.Object;
 

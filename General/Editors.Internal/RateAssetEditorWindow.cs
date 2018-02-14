@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using System.Linq;
 
-namespace Devdog.General.Editors
+namespace Devdog.General2.Editors
 {
     public class RateAssetEditorWindow : EditorWindow
     {

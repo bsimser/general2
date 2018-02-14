@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Devdog.General.Editors.ReflectionDrawers;
+using Devdog.General2.Editors.ReflectionDrawers;
 using UnityEditor;
 using UnityEngine;
 
-namespace Devdog.General.Localization.Editors
+namespace Devdog.General2.Localization.Editors
 {
     [CustomDrawer(typeof(LocalizedString))]
     public class LocalizedStringDrawer : SimpleValueDrawer

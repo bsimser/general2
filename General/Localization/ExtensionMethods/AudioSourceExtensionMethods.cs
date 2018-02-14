@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Devdog.General.Localization;
+using Devdog.General2.Localization;
 
-namespace Devdog.General
+namespace Devdog.General2
 {
     public static partial class AudioSourceExtensionMethods
     {

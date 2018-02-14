@@ -1,7 +1,7 @@
 {
     "name": "Devdog.General.Integration.Rewired",
     "references": [
-        "Devdog.General"
+        "Devdog.General2"
     ],
     "includePlatforms": [],
     "excludePlatforms": []
