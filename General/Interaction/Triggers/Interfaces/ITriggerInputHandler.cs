@@ -11,6 +11,6 @@ namespace Devdog.General2
         TriggerActionInfo actionInfo { get; }
 
         bool AreKeysDown();
-        void Use();
+        void Use(Character character);
     }
 }

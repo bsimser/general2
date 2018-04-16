@@ -10,7 +10,8 @@ namespace Devdog.General2
     {
         [SerializeField]
         private bool _initPlayerOnStart = true;
-        
+
+        public ITrigger bestTriggerInRange { get; set; }
         public BestTriggerSelectorBase triggerSelector;
         
         private readonly WaitForSeconds _waitForSeconds = new WaitForSeconds(0.1f);
@@ -27,20 +28,43 @@ namespace Devdog.General2
             {
                 RegisterPlayerAsCurrentPlayer();
             }
+
+            if (triggerSelector != null)
+            {
+                StartCoroutine(SelectBestTrigger());
+            }
             
-            StartCoroutine(SelectBestTrigger());
             InputManager.OnPlayerInputChanged += OnPlayerInputChanged;
         }
 
         private IEnumerator SelectBestTrigger()
         {
-            yield return _waitForSeconds;
-            if (triggerSelector != null)
+            while (true)
             {
-                triggerSelector.GetBestTrigger(this, triggersInRange);
+                yield return _waitForSeconds;
+                bestTriggerInRange = triggerSelector.GetBestTrigger(this, triggersInRange);
             }
         }
 
+        private void Update()
+        {
+            if (bestTriggerInRange != null)
+            {
+                var c = bestTriggerInRange as UnityEngine.Component;
+                if(c != null)
+                {
+                    var inputHandler = c.GetComponent<ITriggerInputHandler>();
+                    if (inputHandler != null)
+                    {
+                        if (inputHandler.AreKeysDown())
+                        {
+                            inputHandler.Use(this);
+                        }
+                    }    
+                }
+            }
+        }
+        
         protected override void OnDestroy()
         {
             base.OnDestroy();

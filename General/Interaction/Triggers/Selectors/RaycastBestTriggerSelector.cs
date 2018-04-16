@@ -29,11 +29,14 @@ namespace Devdog.General2
             RaycastHit hit;
             if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, raycastDistance, layerMask))
             {
-                var trigger = hit.transform.GetComponent<TriggerBase>();
-                if (trigger != null && trigger.enabled)
+                var trigger = hit.transform.GetComponent<ITrigger>();
+                var behaviour = trigger as Behaviour;
+                if (behaviour == null || behaviour.enabled == false || behaviour.gameObject.activeSelf == false)
                 {
-                    return trigger;
+                    return null;
                 }
+                
+                return trigger;
             }
 
             return null;

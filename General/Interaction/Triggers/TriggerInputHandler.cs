@@ -78,7 +78,7 @@ namespace Devdog.General2
 
             if (_triggerMouseClick)
             {
-                Use();
+                Use(PlayerManager.currentPlayer);
             }
         }
 

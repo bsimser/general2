@@ -55,10 +55,5 @@ namespace Devdog.General2
         {
             trigger.Toggle(character);
         }
-        
-        public virtual void Use()
-        {
-            Use(PlayerManager.currentPlayer);
-        }
     }
 }

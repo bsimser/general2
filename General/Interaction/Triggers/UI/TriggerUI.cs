@@ -38,14 +38,15 @@ namespace Devdog.General2.UI
 
         protected void LateUpdate()
         {
-            if (moveToTriggerLocation && player != null && player.triggerSelector != null)
+            if (player != null)
             {
-                var newTrigger = player.triggerSelector.GetBestTrigger(player, player.GetInRangeTriggers());
-                if (newTrigger != _currentTrigger)
+                if (player.bestTriggerInRange != _currentTrigger)
                 {
-                    _currentTrigger = newTrigger;
+                    _currentTrigger = player.bestTriggerInRange;
                     BestTriggerChanged(_currentTrigger);
                 }
+
+                _currentTrigger = player.bestTriggerInRange;
             }
         }
         
