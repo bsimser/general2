@@ -46,21 +46,31 @@ namespace Devdog.General2
 
         protected void OnTriggerEnter2D(Collider2D other)
         {
-            var player = other.gameObject.GetComponent<Player2D>();
-            if (player != null)
+            var player2D = other.gameObject.GetComponent<Player2D>();
+            if (player2D != null)
             {
-                _charactersInRange.Add(player);
-//                _trigger.NotifyCameInRange(player);
-            }
+                // Check just in case the player object has more than 1 collider.
+                if (_charactersInRange.Contains(player2D) == false)
+                {
+                    _charactersInRange.Add(player2D);
+                    player2D.NotifyCameIntoTriggerRange(_trigger);
+                }
+            }   
         }
 
         protected void OnTriggerExit2D(Collider2D other)
         {
-            var player = other.gameObject.GetComponent<Player2D>();
-            if (player != null)
+            var character = other.gameObject.GetComponent<Player2D>();
+            if (character != null)
             {
-                _charactersInRange.Remove(player);
-                _trigger.UnUse(player);
+                // Check just in case the player object has more than 1 collider.
+                if (_charactersInRange.Contains(character))
+                {
+                    character.NotifyWentOutOfTriggerRange(_trigger);
+                    _trigger.UnUse(character);
+                
+                    _charactersInRange.Remove(character);   
+                }
             }
         }
     }

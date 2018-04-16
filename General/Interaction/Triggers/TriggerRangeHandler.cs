@@ -41,15 +41,28 @@ namespace Devdog.General2
             gameObject.layer = 2; // Ignore raycasts
         }
 
+        protected void OnDestroy()
+        {
+            foreach (var character in _charactersInRange)
+            {
+                if (character != null)
+                {
+                    character.NotifyWentOutOfTriggerRange(_trigger);
+                }
+            }
+        }
+        
         protected void OnTriggerEnter(Collider other)
         {
             var character = other.gameObject.GetComponent<Character>();
             if (character != null)
             {
-                _charactersInRange.Add(character);
-
-                character.NotifyCameIntoTriggerRange(_trigger);
-//                _trigger.NotifyCharacterCameInRange(character);
+                // Check just in case the player object has more than 1 collider.
+                if (_charactersInRange.Contains(character) == false)
+                {
+                    _charactersInRange.Add(character);
+                    character.NotifyCameIntoTriggerRange(_trigger);
+                }
             }   
         }
 
@@ -58,14 +71,16 @@ namespace Devdog.General2
             var character = other.gameObject.GetComponent<Character>();
             if (character != null)
             {
-                character.NotifyWentOutOfTriggerRange(_trigger);
-//                _trigger.NotifyCharacterWentOutOfRange(character);
-                _trigger.UnUse(character);
+                // Check just in case the player object has more than 1 collider.
+                if (_charactersInRange.Contains(character))
+                {
+                    character.NotifyWentOutOfTriggerRange(_trigger);
+                    _trigger.UnUse(character);
                 
-                _charactersInRange.Remove(character);
+                    _charactersInRange.Remove(character);   
+                }
             }
         }
-
 
         public IEnumerable<Character> GetCharactersInRange()
         {
