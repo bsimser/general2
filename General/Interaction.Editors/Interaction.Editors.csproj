@@ -7,8 +7,8 @@
     <ProjectGuid>{8E799964-A4D3-4AB0-AEC7-7E09D9D662BF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Interaction.Editors</RootNamespace>
-    <AssemblyName>Interaction.Editors</AssemblyName>
+    <RootNamespace>Devdog.General.Interaction.Editors</RootNamespace>
+    <AssemblyName>Devdog.General.Interaction.Editors</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

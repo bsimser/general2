@@ -6,7 +6,7 @@ namespace Devdog.General2.Editors
 {
     public static class NewsletterEditorUtility
     {
-        private const string SignupNewsletterApiUrl = "http://devdog.io/unity/mailchimpsignup.php";
+        private const string SignupNewsletterApiUrl = "https://devdog.io/unity/mailchimpsignup.php";
         private const string DevdogNewsletterSignupKey = "DEVDOG_SIGNUP_EMAIL";
 
         private static string _email;

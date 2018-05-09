@@ -1,42 +1,40 @@
 ﻿using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using System.Net;
 
 namespace Devdog.General2.Editors
 {
-    [InitializeOnLoad]
     public abstract class GettingStartedEditorBase : EditorWindow
     {
-        public struct ProductInfo
-        {
-            public string productName { get; set; }
-            public string assetStoreUrl { get; set; }
-            public Texture icon { get; set; }
-        }
-
         protected const int SingleColWidth = 400;
         protected static Texture documentationIcon;
         protected static Texture videoTutorialsIcon;
         protected static Texture reviewIcon;
         protected static Texture forumIcon;
-        protected static Texture integrationsIcon;
         protected static Texture newsletterIcon;
         protected static Texture devdogLogoIcon;
 
-        public bool showOnStart = true;
+        private bool _showOnStart = true;
+        public bool showOnStart
+        {
+            get { return _showOnStart; }
+            set
+            {
+                _showOnStart = value;
+                EditorPrefs.SetBool(editorPrefsKey, value);
+            }
+        }
+
         protected int heightExtra;
 
         protected string productName;
         protected string documentationUrl;
-        protected string productsFetchApiUrl;
         protected string youtubeUrl;
-        protected string forumUrl = "http://forum.devdog.io";
+        protected string forumUrl = "https://forum.devdog.io";
         protected string reviewProductUrl;
         protected string version;
 
-        private const string IconRootPath = "Assets/Devdog/General/EditorStyles/";
+        private const string IconRootPath = "Assets/Devdog/General2/Editors.Internal/EditorStyles/";
         private const string DocumentationIconUri = IconRootPath + "Documentation.png";
         private const string VideoTutorialsIconUri = IconRootPath + "Youtube.png";
         private const string ReviewIconUri = IconRootPath + "Star.png";
@@ -49,28 +47,9 @@ namespace Devdog.General2.Editors
         private static string _email;
 
         public static GettingStartedEditorBase window { get; protected set; }
-
-        private List<ProductInfo> _productInfo = new List<ProductInfo>();
         public string editorPrefsKey
         {
-            get { return "SHOW_" + productName + "_GETTING_STARTED_WINDOW" + version; }
-        }
-
-
-        public bool didReloadScripts = false;
-        public void DoUpdate()
-        {
-            if (didReloadScripts == false)
-            {
-                if (EditorPrefs.GetBool(window.editorPrefsKey, true))
-                {
-                    window.GetImages();
-                    window.GetProducts();
-                    window.ShowUtility();
-                }
-
-                didReloadScripts = false;
-            }
+            get { return "SHOW_" + productName + "_GETTING_STARTED_WINDOW"; }
         }
 
         public void GetImages()
@@ -79,7 +58,7 @@ namespace Devdog.General2.Editors
             videoTutorialsIcon = AssetDatabase.LoadAssetAtPath<Texture>(VideoTutorialsIconUri);
             reviewIcon = AssetDatabase.LoadAssetAtPath<Texture>(ReviewIconUri);
             forumIcon = AssetDatabase.LoadAssetAtPath<Texture>(ForumIconUri);
-            integrationsIcon = AssetDatabase.LoadAssetAtPath<Texture>(IntegrationIconUri);
+//            integrationsIcon = AssetDatabase.LoadAssetAtPath<Texture>(IntegrationIconUri);
             devdogLogoIcon = AssetDatabase.LoadAssetAtPath<Texture>(DevdogLogoIconUri);
 
             newsletterIcon = AssetDatabase.LoadAssetAtPath<Texture>(NewsletterIconUri);
@@ -89,51 +68,6 @@ namespace Devdog.General2.Editors
             }
         }
 
-        public void GetProducts()
-        {
-            _productInfo.Clear();
-            using (var client = new WebClient())
-            {
-//                client.DownloadStringCompleted += ClientOnDownloadStringCompleted;
-                var s = client.DownloadString(new Uri(productsFetchApiUrl));
-                ClientOnDownloadStringCompleted(s);
-            }
-        }
-
-        private void ClientOnDownloadStringCompleted(string str)
-        {
-            var arr = str.Split(new string[] { ">>>>" }, StringSplitOptions.None);
-            foreach (var s in arr)
-            {
-                if (string.IsNullOrEmpty(s))
-                {
-                    continue;
-                }
-
-                _productInfo.Add(ParseProductInfo(s));
-            }
-        }
-
-        protected ProductInfo ParseProductInfo(string s)
-        {
-            var info = s.Split('|');
-            using (var www = new WWW(info[1]))
-            {
-                var startTime = EditorApplication.timeSinceStartup;
-                while (www.isDone == false || EditorApplication.timeSinceStartup - startTime > 5f)
-                {
-                    // Wait...    
-                }
-                var icon = www.texture;
-
-                return new ProductInfo()
-                {
-                    productName = info[0],
-                    icon = icon,
-                    assetStoreUrl = info[2],
-                };
-            }
-        }
 
         public abstract void ShowWindow();
 
@@ -150,44 +84,11 @@ namespace Devdog.General2.Editors
             DrawGettingStarted();
             GUILayout.EndArea();
 
-            GUILayout.BeginArea(new Rect(SingleColWidth + (SingleColWidth / 50), 0, SingleColWidth, 260));
-            DrawMailSignupForm();
-            GUILayout.EndArea();
-
-            GUILayout.BeginArea(new Rect(SingleColWidth + (SingleColWidth / 50), 260, SingleColWidth, window.position.height - 260));
-            DrawOtherProducts();
-            GUILayout.EndArea();
+//            GUILayout.BeginArea(new Rect(SingleColWidth + (SingleColWidth / 50), 0, SingleColWidth, 260));
+//            DrawMailSignupForm();
+//            GUILayout.EndArea();
 
             GUI.DrawTexture(new Rect(position.width - 128f, position.height - 128f, 128f, 128f), devdogLogoIcon);
-        }
-
-        protected void DrawOtherProducts()
-        {
-            GUILayout.Space(30);
-
-            EditorGUILayout.LabelField("Other great products you should check out.", UnityEditor.EditorStyles.boldLabel);
-
-            for (int i = 0; i < _productInfo.Count; i++)
-            {
-                DrawProduct(i, _productInfo[i].icon, _productInfo[i].assetStoreUrl);
-            }
-        }
-
-        protected void DrawProduct(int index, Texture icon, string url)
-        {
-            if(icon == null)
-            {
-                return;
-            }
-
-            var rect = new Rect(70 * index, 64, 64, 64);
-            if (GUI.Button(rect, GUIContent.none, GUIStyle.none))
-            {
-                Application.OpenURL(url);
-            }
-
-            EditorGUIUtility.AddCursorRect(rect, MouseCursor.Link);
-            GUI.DrawTexture(rect, icon);
         }
 
         protected void DrawMailSignupForm()
@@ -255,11 +156,11 @@ namespace Devdog.General2.Editors
 
         protected virtual void DrawGettingStarted()
         {
-            var toggle = GUI.Toggle(new Rect(10, window.position.height - 20, SingleColWidth - 10, 20), showOnStart, "OnShow " + productName + " getting started on start.");
-            if (toggle != showOnStart)
+            EditorGUI.BeginChangeCheck();
+            var toggle = GUI.Toggle(new Rect(10, window.position.height - 20, SingleColWidth - 10, 20), showOnStart, "Show " + productName + " Getting started window on start.");
+            if(EditorGUI.EndChangeCheck())
             {
                 showOnStart = toggle;
-                EditorPrefs.SetBool(editorPrefsKey, toggle);
             }
         }
 
@@ -295,8 +196,6 @@ namespace Devdog.General2.Editors
             GUI.Label(rect, desc, UnityEditor.EditorStyles.wordWrappedLabel);
 
             GUI.EndGroup();
-
-
         }
 
         private bool Button(GUIContent content)

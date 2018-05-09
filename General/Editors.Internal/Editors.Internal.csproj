@@ -7,7 +7,7 @@
     <ProjectGuid>{7A6EE25E-C553-4242-B45E-C2F0807832D5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Devdog.General.Editors</RootNamespace>
+    <RootNamespace>Devdog.General.Editors.Internal</RootNamespace>
     <AssemblyName>Devdog.General.Editors.Internal</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

@@ -17,12 +17,12 @@ namespace Devdog.General2
         private readonly List<Character> _charactersInRange = new List<Character>();
         private CircleCollider2D _circleCollider;
         private Rigidbody2D _rigidbody2D;
-        private TriggerBase _trigger;
+        private ITrigger _trigger;
 
         protected void Awake()
         {
-            _trigger = GetComponentInParent<TriggerBase>();
-            Assert.IsNotNull(_trigger, "TriggerRangeHandler used but no TriggerBase found on object.");
+            _trigger = GetComponentInParent<ITrigger>();
+            Assert.IsNotNull(_trigger, "TriggerRangeHandler used but no ITrigger found on object.");
 
             _rigidbody2D = gameObject.GetOrAddComponent<Rigidbody2D>();
             _rigidbody2D.isKinematic = true;

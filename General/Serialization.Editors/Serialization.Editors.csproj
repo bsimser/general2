@@ -7,8 +7,8 @@
     <ProjectGuid>{9D9A23C7-3548-40C3-A5B7-40CCED07EF89}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Serialization.Editors</RootNamespace>
-    <AssemblyName>Serialization.Editors</AssemblyName>
+    <RootNamespace>Devdog.General.Serialization.Editors</RootNamespace>
+    <AssemblyName>Devdog.General.Serialization.Editors</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

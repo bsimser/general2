@@ -1,91 +1,85 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace Devdog.General2
 {
-    public partial class Trigger : TriggerBase
+    public class Trigger : MonoBehaviour, ITrigger
     {
-        [Header("Animations & Audio")]
-        public MotionInfo useAnimation = new MotionInfo();
-        public MotionInfo unUseAnimation = new MotionInfo();
+        private List<Character> _usingCharacters = new List<Character>();
+        private static readonly List<ITriggerCallbacks> _callbacks = new List<ITriggerCallbacks>();
 
-        public AudioClipInfo useAudioClip = new AudioClipInfo();
-        public AudioClipInfo unUseAudioClip = new AudioClipInfo();
-
-        protected Animator animator;
-
-        protected override void Awake()
+        private ITriggerRangeHandler _rangeHandler;
+        public ITriggerRangeHandler rangeHandler
         {
-            base.Awake();
-            animator = GetComponent<Animator>();
-        }
-
-        protected virtual void WindowOnHide()
-        {
-            Server_UnUse(PlayerManager.currentPlayer);
-        }
-
-        protected virtual void WindowOnShow()
-        {
-
-        }
-
-        public override void DoVisuals()
-        {
-            if (useAnimation.motion != null && animator != null)
+            get
             {
-                animator.Play(useAnimation);
+                if (_rangeHandler == null || _rangeHandler.Equals(null))
+                {
+                    _rangeHandler = GetComponentInChildren<ITriggerRangeHandler>();
+                }
+
+                return _rangeHandler;
+            }
+            set { _rangeHandler = value; }
+        }
+
+        protected virtual void OnDestroy()
+        {
+            for (int i = _usingCharacters.Count - 1; i >= 0; i--)
+            {
+                // Try to un-use the collection. If not the server will have to clean up on disconnect.
+                UnUse(_usingCharacters[i]);
+
+                Destroy(GetComponent<ITriggerInputHandler>() as UnityEngine.Component);
+                Destroy(GetComponent<ITriggerRangeHandler>() as UnityEngine.Component);
+            }
+        }
+        
+        public bool Toggle(Character character)
+        {
+            if (_usingCharacters.Contains(character))
+            {
+                return UnUse(character);
             }
 
-            AudioManager.AudioPlayOneShot(useAudioClip);
+            return Use(character);
         }
 
-        public override void UndoVisuals()
+        public bool CanUse(Character character)
         {
-            if (unUseAnimation.motion != null && animator != null)
+            if (rangeHandler.IsCharacterInRange(character) == false)
             {
-                animator.Play(unUseAnimation);
+                return false;
+            }
+            
+            // Avoid double using...
+            if (_usingCharacters.Contains(character))
+            {
+                return false;
             }
 
-            AudioManager.AudioPlayOneShot(unUseAudioClip);
+            return true;
         }
 
-        public override bool Use(Character character)
+        public virtual bool Use(Character character)
         {
             if (CanUse(character) == false)
             {
                 return false;
             }
-
-            if (this.Equals(character.currentTrigger))
-            {
-                return true;
-            }
-
+            
             Server_Use(character);
             return true;
         }
 
-        public override void Server_Use(Character character)
+        public bool CanUnUse(Character character)
         {
-            DoVisuals();
-            NotifyTriggerUsed(character);
+            return _usingCharacters.Contains(character);
         }
 
-        /// <summary>
-        /// Force use this trigger (ignores range and other conditions), and will not set a state (it won't set this as the active trigger),
-        /// also UI elements won't be shown (windows)
-        /// 
-        /// <remarks>This method can be useful when you want to let a NPC or something other than the player use a trigger.</remarks>
-        /// </summary>
-        /// <param name="character">The object that used this trigger, null if not used by an object.</param>
-        public virtual void ForceUseWithoutStateAndUI(Character character)
-        {
-            DoVisuals();
-            NotifyTriggerUsed(character);
-        }
-
-        public override bool UnUse(Character character)
+        public bool UnUse(Character character)
         {
             if (CanUnUse(character) == false)
             {
@@ -96,16 +90,76 @@ namespace Devdog.General2
             return true;
         }
 
-        public override void Server_UnUse(Character character)
+        public virtual void Server_Use(Character character)
         {
-            UndoVisuals();
+            if (character.currentTrigger != null)
+            {
+                // If this player is already using a collection unuse it and use this one.
+                // NOTE: ForceUnUse could unuse a trigger that can't be un-used... But calling UnUse() could fail
+                character.currentTrigger.Server_UnUse(character);
+            }
+
+            NotifyTriggerUsed(character);
+        }
+
+        public virtual void Server_UnUse(Character character)
+        {
             NotifyTriggerUnUsed(character);
         }
 
-        public virtual void ForceUnUseWithoutStateAndUI(Character character)
+        private IEnumerable<ITriggerCallbacks> GetCallbacks()
         {
-            UndoVisuals();
-            NotifyTriggerUnUsed(character);
+            GetComponents<ITriggerCallbacks>(_callbacks);
+            for (int i = 0; i < _callbacks.Count; i++)
+            {
+                var callback = _callbacks[i];
+                var callbackBehaviour = callback as Behaviour;
+                if (callbackBehaviour != null)
+                {
+                    if (callbackBehaviour.isActiveAndEnabled == false)
+                    {
+                        continue;
+                    }
+                }
+
+                yield return callback;
+            }
+        }
+
+        /// <summary>
+        /// Only the first active and enabled component gets the callbacks. In order for the next component to receive the callbacks the first one has to be disabled or removed.
+        /// </summary>
+        public virtual void NotifyTriggerUsed(Character character)
+        {
+            _usingCharacters.Add(character);
+            character.currentTrigger = this;
+            var data = new TriggerEventData();
+            foreach (var callback in GetCallbacks())
+            {
+                callback.OnTriggerUsed(character, data);
+                if (data.used)
+                {
+                    break;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Only the first active and enabled component gets the callbacks. In order for the next component to receive the callbacks the first one has to be disabled or removed.
+        /// </summary>
+        public virtual void NotifyTriggerUnUsed(Character character)
+        {
+            _usingCharacters.Remove(character);
+            character.currentTrigger = null;
+            var data = new TriggerEventData();
+            foreach (var callback in GetCallbacks())
+            {
+                callback.OnTriggerUnUsed(character, data);
+                if (data.used)
+                {
+                    break;
+                }
+            }
         }
     }
 }

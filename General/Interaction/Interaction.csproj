@@ -7,7 +7,7 @@
     <ProjectGuid>{B2B6810D-9A1F-4A97-A221-E0D6598E2EF2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Devdog.General</RootNamespace>
+    <RootNamespace>Devdog.General.Interaction</RootNamespace>
     <AssemblyName>Devdog.General.Interaction</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -83,6 +83,7 @@
     <Compile Include="Triggers\TriggerRangeHandler2D.cs" />
     <Compile Include="Triggers\UI\TriggerUI.cs" />
     <Compile Include="Triggers\TriggerVisuals.cs" />
+    <Compile Include="Triggers\TriggerColliderUse.cs" />
     <Compile Include="Triggers\UNet\UNetTrigger.cs" />
     <Compile Include="Triggers\UNet\UNetTriggerColliderUse.cs" />
     <Compile Include="Triggers\Utilities\TriggerUtility.cs" />

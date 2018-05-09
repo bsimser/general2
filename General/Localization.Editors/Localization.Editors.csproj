@@ -7,8 +7,8 @@
     <ProjectGuid>{7FEF62A7-C119-46E3-B956-D448F6FC04B8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Localization.Editors</RootNamespace>
-    <AssemblyName>Localization.Editors</AssemblyName>
+    <RootNamespace>Devdog.General.Localization.Editors</RootNamespace>
+    <AssemblyName>Devdog.General.Localization.Editors</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

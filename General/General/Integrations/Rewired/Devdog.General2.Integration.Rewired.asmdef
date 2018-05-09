@@ -1,5 +1,5 @@
 {
-    "name": "Devdog.General.Integration.Rewired",
+    "name": "Devdog.General2.Integration.Rewired",
     "references": [
         "Devdog.General2"
     ],

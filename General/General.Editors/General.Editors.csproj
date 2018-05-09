@@ -7,8 +7,8 @@
     <ProjectGuid>{CAC6B109-9224-413B-9EE4-9E66971C4EC6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>General.Editors</RootNamespace>
-    <AssemblyName>General.Editors</AssemblyName>
+    <RootNamespace>Devdog.General.Editors</RootNamespace>
+    <AssemblyName>Devdog.General.Editors</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

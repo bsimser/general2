@@ -31,8 +31,7 @@ namespace Devdog.General2.Editors
                 BuildTargetGroup.PSP2,
                 BuildTargetGroup.PS4,
                 BuildTargetGroup.PSM,
-                BuildTargetGroup.XboxOne,
-                BuildTargetGroup.SamsungTV
+                BuildTargetGroup.XboxOne
             };
 
             _grayishColor = new Color(0.7f, 0.7f, 0.7f, 1.0f);

@@ -64,7 +64,7 @@ namespace Devdog.General2.Editors
 
         public void OnSceneGUI()
         {
-            var trigger = (TriggerBase)target;
+            var trigger = (Trigger)target;
             if (trigger.rangeHandler == null || trigger.rangeHandler.Equals(null))
             {
                 EditorGUILayout.HelpBox("Trigger does not contain a range handler", MessageType.Warning);
@@ -119,7 +119,7 @@ namespace Devdog.General2.Editors
 
         private void DrawAddModules()
         {
-            var t = (TriggerBase) target;
+//            var t = (Trigger) target;
 
 //            DrawWindowContainer(t);
 

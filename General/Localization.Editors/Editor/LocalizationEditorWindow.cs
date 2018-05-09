@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using UnityEditor;
 using UnityEngine;
 
@@ -62,15 +61,58 @@ namespace Devdog.General2.Localization.Editors
 
         protected void OnGUI()
         {
-            var rect = new Rect(0f, 0f, position.width, 20f);
-            GUI.BeginGroup(rect, (GUIStyle)"box");
-            EditorGUILayout.BeginHorizontal();
-            int keysCount = 0;
+            DrawLanguagePicker(20f);
+
+            var keysCount = LocalizationManager.defaultDatabase._EditorGetAllStrings().Count + LocalizationManager.defaultDatabase._EditorGetAllObjects().Count;
+            var searchRect = new Rect(position.width - 210f, 0f, 200f, EditorGUIUtility.singleLineHeight);
+            _searchQuery = General2.Editors.EditorStyles.SearchBar(searchRect, _searchQuery, this, _isSearching);
+            
+            var rect = new Rect(0f, 30f, position.width, position.height - 30f);
+            _scrollPos = GUI.BeginScrollView(rect, _scrollPos, new Rect(0, 0, 200f * (_dbs.Length + 1), 150 + (keysCount + 2) * EditorGUIUtility.singleLineHeight), false, true);
 
             foreach (var db in _dbs)
             {
-                keysCount += db._EditorGetAllStrings().Count;
+                int indexCounter = 0;
+                indexCounter += DrawKeys<string>(_stringKeys, indexCounter);
+                indexCounter += DrawKeys<Texture>(_textureKeys, indexCounter);
+                indexCounter += DrawKeys<Sprite>(_spriteKeys, indexCounter);
+                indexCounter += DrawKeys<AudioClip>(_audioClipKeys, indexCounter);
+                indexCounter += DrawKeys<UnityEngine.Object>(_objectKeys, indexCounter);
+            }
 
+            for (var i = 0; i < _dbs.Length; i++)
+            {
+                var db = _dbs[i];
+                if (IsLanguageChecked(db) == false)
+                {
+                    continue;
+                }
+
+                EditorGUI.LabelField(new Rect(_colWidth * (i + 1), 0f, _colWidth, EditorGUIUtility.singleLineHeight), db.lang);
+
+                GUI.BeginGroup(new Rect(_colWidth * (i + 1), 0f, _colWidth, (keysCount + 2) * EditorGUIUtility.singleLineHeight), (GUIStyle) "box");
+
+                int counter2 = 0;
+                counter2 += DrawLocalizationDataString(db._EditorGetAllStrings(), _stringKeys, counter2);
+                counter2 += DrawLocalizationData<Texture2D>(db._EditorGetAllObjects(), _textureKeys, counter2);
+                counter2 += DrawLocalizationData<Sprite>(db._EditorGetAllObjects(), _spriteKeys, counter2);
+                counter2 += DrawLocalizationData<AudioClip>(db._EditorGetAllObjects(), _audioClipKeys, counter2);
+                counter2 += DrawLocalizationData<UnityEngine.Object>(db._EditorGetAllObjects(), _objectKeys, counter2);
+
+                GUI.EndGroup();
+            }
+
+            GUI.EndScrollView();
+        }
+
+        private void DrawLanguagePicker(float height)
+        {
+            var rect = new Rect(0f, 0f, position.width, height);
+            GUI.BeginGroup(rect, (GUIStyle) "box");
+            EditorGUILayout.BeginHorizontal();
+
+            foreach (var db in _dbs)
+            {
                 EditorGUI.BeginChangeCheck();
                 EditorGUIUtility.labelWidth = 50f;
                 var result = EditorGUILayout.ToggleLeft(db.lang, IsLanguageChecked(db), GUILayout.Width(80f));
@@ -84,50 +126,6 @@ namespace Devdog.General2.Localization.Editors
 
             EditorGUILayout.EndHorizontal();
             GUI.EndGroup();
-            rect.y += rect.height;
-
-            rect.height = 20f;
-            _searchQuery = General2.Editors.EditorStyles.SearchBar(rect, _searchQuery, this, _isSearching);
-            rect.y += rect.height;
-
-            rect.height = position.height + 100f;
-//            rect.height = position.height - rect.height - 20f;
-            _scrollPos = GUI.BeginScrollView(rect, _scrollPos, new Rect(0, 0, 200f * (_dbs.Length + 1), keysCount * EditorGUIUtility.singleLineHeight), false, true);
-            int colIndex = 0;
-            foreach (var db in _dbs)
-            {
-                if (IsLanguageChecked(db) == false)
-                {
-                    continue;
-                }
-
-                EditorGUI.LabelField(new Rect(_colWidth * (colIndex + 1), 0f, _colWidth, EditorGUIUtility.singleLineHeight), db.lang);
-
-                if (colIndex == 0)
-                {
-                    int indexCounter = 0;
-                    indexCounter += DrawKeys<string>(_stringKeys, indexCounter);
-                    indexCounter += DrawKeys<Texture>(_textureKeys, indexCounter);
-                    indexCounter += DrawKeys<Sprite>(_spriteKeys, indexCounter);
-                    indexCounter += DrawKeys<AudioClip>(_audioClipKeys, indexCounter);
-                    indexCounter += DrawKeys<UnityEngine.Object>(_objectKeys, indexCounter);
-                }
-
-
-                GUI.BeginGroup(new Rect(_colWidth * (colIndex + 1), 0f, _colWidth, keysCount * EditorGUIUtility.singleLineHeight), (GUIStyle)"box");
-
-                int counter2 = 0;
-                counter2 += DrawLocalizationDataString(db._EditorGetAllStrings(), _stringKeys, counter2);
-                counter2 += DrawLocalizationData<Texture2D>(db._EditorGetAllObjects(),  _textureKeys, counter2);
-                counter2 += DrawLocalizationData<Sprite>(db._EditorGetAllObjects(), _spriteKeys, counter2);
-                counter2 += DrawLocalizationData<AudioClip>(db._EditorGetAllObjects(), _audioClipKeys, counter2);
-                counter2 += DrawLocalizationData<UnityEngine.Object>(db._EditorGetAllObjects(), _objectKeys, counter2);
-
-                colIndex++;
-                GUI.EndGroup();
-            }
-
-            GUI.EndScrollView();
         }
 
         /// <returns>Returns the amount of keys drawn (increments startCount)</returns>
@@ -171,7 +169,8 @@ namespace Devdog.General2.Localization.Editors
             return startCount;
         }
 
-        private static int DrawLocalizationData<T>(Dictionary<string, UnityEngine.Object> data, string[] keys, int startCount) where T : UnityEngine.Object
+        private static int DrawLocalizationData<T>(Dictionary<string, UnityEngine.Object> data, string[] keys, int startCount)
+            where T : UnityEngine.Object
         {
             startCount++;
             startCount++;
