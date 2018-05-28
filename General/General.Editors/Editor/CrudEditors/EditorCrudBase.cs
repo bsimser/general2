@@ -86,7 +86,10 @@ namespace Devdog.General2.Editors
             
             foreach (var method in _deferredActions)
             {
-                method?.Invoke();
+                if (method != null)
+                {
+                    method.Invoke();
+                }
             }
 
             _deferredActions.Clear();
