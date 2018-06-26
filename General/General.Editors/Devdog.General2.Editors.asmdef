@@ -1,7 +1,8 @@
 {
     "name": "Devdog.General2.Editors",
     "references": [
-        "Devdog.General2"
+        "Devdog.General2",
+        "Devdog.General2.Serialization"
     ],
     "includePlatforms": [
         "Editor"

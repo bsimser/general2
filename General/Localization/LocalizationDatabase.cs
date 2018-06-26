@@ -82,7 +82,10 @@ namespace Devdog.General2.Localization
             _localizedStrings[key] = msg;
 
 #if UNITY_EDITOR
-            UnityEditor.EditorUtility.SetDirty(this);
+            if (UnityEditor.EditorApplication.isPlaying == false)
+            {
+                UnityEditor.EditorUtility.SetDirty(this);
+            }
 #endif
         }
 

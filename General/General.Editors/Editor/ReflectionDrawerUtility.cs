@@ -244,6 +244,15 @@ namespace Devdog.General2.Editors.ReflectionDrawers
 
         public static DerivedTypeInformation GetDerivedTypesFrom(Type fromType, Type onlyDerivedFrom)
         {
+            if (typeof(IAsset).IsAssignableFrom(fromType))
+            {
+                return new DerivedTypeInformation()
+                {
+                    types = new []{fromType},
+                    content = new []{new GUIContent(fromType.GetGenericArguments()[0].Name)}
+                };
+            }
+            
             if (fromType.IsGenericType)
             {
                 fromType = fromType.GetGenericTypeDefinition();
@@ -318,7 +327,7 @@ namespace Devdog.General2.Editors.ReflectionDrawers
         }
 
         public static bool IsGenericTypeWithoutGenericArguments(Type type)
-        {
+        {          
             return type.IsGenericTypeDefinition;
         }
     }
