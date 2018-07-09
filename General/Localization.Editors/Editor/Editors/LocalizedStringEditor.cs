@@ -76,7 +76,7 @@ namespace Devdog.General2.Localization.Editors
             }
 
             rect.height = EditorGUIUtility.singleLineHeight;
-            var str = EditorGUI.TextField(rect, label, msgInst.message ?? "");
+            var str = EditorGUI.DelayedTextField(rect, label, msgInst.message ?? "");
             if (EditorGUI.EndChangeCheck() && LocalizationManager.defaultDatabase != null && str != LocalizationManager.defaultDatabase.GetString(keyField.stringValue))
             {
                 if (IsNullOrWhiteSpace(keyField.stringValue) || keyField.stringValue == LocalizationManager.NoKeyConstant)
