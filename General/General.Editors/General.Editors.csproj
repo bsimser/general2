@@ -179,10 +179,6 @@
       <Project>{a36fe07e-2ce6-4cc1-9fd1-8c3a7bb76342}</Project>
       <Name>General</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Serialization\Serialization.csproj">
-      <Project>{9da49e38-e4c2-4431-9042-cfd108d1affa}</Project>
-      <Name>Serialization</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
