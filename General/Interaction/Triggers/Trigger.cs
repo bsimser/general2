@@ -99,11 +99,16 @@ namespace Devdog.General2
                 character.currentTrigger.Server_UnUse(character);
             }
 
+            _usingCharacters.Add(character);
+            character.currentTrigger = this;
             NotifyTriggerUsed(character);
         }
 
         public virtual void Server_UnUse(Character character)
         {
+            _usingCharacters.Remove(character);
+            character.currentTrigger = null;
+            
             NotifyTriggerUnUsed(character);
         }
 
@@ -131,8 +136,6 @@ namespace Devdog.General2
         /// </summary>
         public virtual void NotifyTriggerUsed(Character character)
         {
-            _usingCharacters.Add(character);
-            character.currentTrigger = this;
             var data = new TriggerEventData();
             foreach (var callback in GetCallbacks())
             {
@@ -149,8 +152,6 @@ namespace Devdog.General2
         /// </summary>
         public virtual void NotifyTriggerUnUsed(Character character)
         {
-            _usingCharacters.Remove(character);
-            character.currentTrigger = null;
             var data = new TriggerEventData();
             foreach (var callback in GetCallbacks())
             {

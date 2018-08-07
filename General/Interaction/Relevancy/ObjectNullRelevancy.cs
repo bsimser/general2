@@ -7,11 +7,10 @@ namespace Devdog.General2
 {
     public sealed class ObjectNullRelevancy : IObjectRelevancy
     {
-        public event Action OnBecameRelevant;
-        public event Action OnBecameIrrelevant;
+        public event Action<Character> OnBecameRelevant;
+        public event Action<Character> OnBecameIrrelevant;
 
-
-        public bool IsRelevant(GameObject obj)
+        public bool IsRelevant(Character character)
         {
             return true;
         }

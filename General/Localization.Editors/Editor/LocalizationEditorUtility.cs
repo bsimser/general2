@@ -47,6 +47,12 @@ namespace Devdog.General2.Localization.Editors
             rect.width -= 20f;
 
             var dbs = LocalizationManager.GetAvailableLanguageDatabases();
+            if (dbs.Length == 0 || dbs.All(o => o == null))
+            {
+                // No slots or all empty
+                GUI.enabled = false;
+            }
+            
             var shownLanguages = dbs.Where(o => o != null).Select(o => new GUIContent(o.lang)).Take((int)Mathf.Max(3f, rect.width / 60f)).ToArray();
             if (shownLanguages.Length > 0)
             {
@@ -91,6 +97,8 @@ namespace Devdog.General2.Localization.Editors
 
             rect.y += EditorGUIUtility.singleLineHeight;
             rect.width += 20f;
+
+            GUI.enabled = true;
         }
 
         private static int GetCurrentLanguageIndex(GUIContent[] langs, string currentLanguage)

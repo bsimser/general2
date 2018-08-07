@@ -9,9 +9,9 @@ namespace Devdog.General2
     /// </summary>
     public interface IObjectRelevancy
     {
-        event Action OnBecameRelevant;
-        event Action OnBecameIrrelevant;
+        event Action<Character> OnBecameRelevant;
+        event Action<Character> OnBecameIrrelevant;
 
-        bool IsRelevant(GameObject obj);
+        bool IsRelevant(Character character);
     }
 }

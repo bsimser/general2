@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Devdog.General2
@@ -6,14 +7,13 @@ namespace Devdog.General2
     [RequireComponent(typeof(SphereCollider))]
     public sealed class ObjectDistanceRelevancy : MonoBehaviour, IObjectRelevancy
     {
-        public event Action OnBecameRelevant;
-        public event Action OnBecameIrrelevant;
+        public event Action<Character> OnBecameRelevant;
+        public event Action<Character> OnBecameIrrelevant;
 
-        private bool _inTrigger;
+        private readonly List<Character> _inRange = new List<Character>();
 
         private void Awake()
         {
-
             OnValidate();
         }
 
@@ -25,7 +25,7 @@ namespace Devdog.General2
             s.gameObject.layer = 2;
         }
 
-        public bool IsRelevant(GameObject obj)
+        public bool IsRelevant(Character character)
         {
 #if UNITY_EDITOR
             if (Application.isPlaying == false)
@@ -34,7 +34,7 @@ namespace Devdog.General2
             }
 #endif
 
-            return _inTrigger;
+            return _inRange.Contains(character);
         }
 
         private void OnTriggerEnter(Collider other)
@@ -49,16 +49,13 @@ namespace Devdog.General2
 
         private void DoOnTriggerEnter(GameObject obj)
         {
-            if (obj.GetComponent<Player>() != null)
+            var player = obj.GetComponent<Player>();
+            if (player != null)
             {
-                var before = _inTrigger;
-                _inTrigger = true;
-                if (before == false)
+                _inRange.Add(player);
+                if (OnBecameRelevant != null)
                 {
-                    if (OnBecameRelevant != null)
-                    {
-                        OnBecameRelevant();
-                    }
+                    OnBecameRelevant(player);
                 }
             }
         }
@@ -75,16 +72,12 @@ namespace Devdog.General2
 
         private void DoOnTriggerExit(GameObject obj)
         {
-            if (obj.GetComponent<Player>() != null)
+            var player = obj.GetComponent<Player>();
+            if (player != null)
             {
-                var before = _inTrigger;
-                _inTrigger = false;
-                if (before)
+                if (OnBecameIrrelevant != null)
                 {
-                    if (OnBecameIrrelevant != null)
-                    {
-                        OnBecameIrrelevant();
-                    }
+                    OnBecameIrrelevant(player);
                 }
             }
         }
