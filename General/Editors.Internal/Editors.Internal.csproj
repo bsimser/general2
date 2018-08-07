@@ -67,7 +67,6 @@
     <Compile Include="GameRules\GameRulesWindow.cs" />
     <Compile Include="GameRules\Interfaces\IGameRule.cs" />
     <Compile Include="GettingStartedEditorBase.cs" />
-    <Compile Include="IntegrationHelperEditorBase.cs" />
     <Compile Include="NewsletterEditorUtility.cs" />
     <Compile Include="ProductLookup.cs" />
     <Compile Include="ProductRatingUtility.cs" />

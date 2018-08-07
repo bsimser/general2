@@ -19,9 +19,15 @@ namespace Devdog.General2.Localization
             }
             set
             {
-                if (LocalizationManager.currentDatabase != null)
+                var c = LocalizationManager.currentDatabase;
+                if (c != null)
                 {
-                    LocalizationManager.currentDatabase.SetString(_key, value);
+                    if (_key == LocalizationManager.NoKeyConstant)
+                    {
+                        _key = System.Guid.NewGuid().ToString();
+                    }
+                    
+                    c.SetString(_key, value);
                 }
             }
         }
