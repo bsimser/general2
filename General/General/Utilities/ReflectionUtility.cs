@@ -89,6 +89,22 @@ namespace Devdog.General2
             return GetFieldInherited(startType.BaseType, fieldName);
         }
 
+        public static PropertyInfo GetPropertyInherited(System.Type startType, string propertyName)
+        {
+            if (startType == typeof(MonoBehaviour) || startType == null || startType == typeof(object))
+                return null;
+
+            // Copied fields can be restricted with BindingFlags
+            var property = startType.GetProperty(propertyName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+            if (property != null)
+            {
+                return property;
+            }
+
+            // Keep going untill we hit UnityEngine.MonoBehaviour type or null.
+            return GetPropertyInherited(startType.BaseType, propertyName);
+        }
+        
         public static MethodInfo GetMethodByName(Type type, string methodName)
         {
             return GetAllMethodsFromType(type).FirstOrDefault(o => o.Name == methodName);
