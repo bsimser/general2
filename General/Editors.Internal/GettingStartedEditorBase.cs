@@ -11,6 +11,7 @@ namespace Devdog.General2.Editors
         protected static Texture videoTutorialsIcon;
         protected static Texture reviewIcon;
         protected static Texture forumIcon;
+        protected static Texture discordIcon;
         protected static Texture newsletterIcon;
         protected static Texture devdogLogoIcon;
 
@@ -31,6 +32,7 @@ namespace Devdog.General2.Editors
         protected string documentationUrl;
         protected string youtubeUrl;
         protected string forumUrl = "https://forum.devdog.io";
+        protected string discordUrl = "https://discord.gg/zjNj5zZ";
         protected string reviewProductUrl;
         protected string version;
 
@@ -39,6 +41,7 @@ namespace Devdog.General2.Editors
         private const string VideoTutorialsIconUri = IconRootPath + "Youtube.png";
         private const string ReviewIconUri = IconRootPath + "Star.png";
         private const string ForumIconUri = IconRootPath + "Forum.png";
+        private const string DiscordIconUri = IconRootPath + "Discord.png";
         private const string IntegrationIconUri = IconRootPath + "Integration.png";
         private const string NewsletterIconUri = IconRootPath + "MailNotSignedUp.png";
         private const string NewsletterSubscribedIconUri = IconRootPath + "MailSignedUp.png";
@@ -58,6 +61,7 @@ namespace Devdog.General2.Editors
             videoTutorialsIcon = AssetDatabase.LoadAssetAtPath<Texture>(VideoTutorialsIconUri);
             reviewIcon = AssetDatabase.LoadAssetAtPath<Texture>(ReviewIconUri);
             forumIcon = AssetDatabase.LoadAssetAtPath<Texture>(ForumIconUri);
+            discordIcon = AssetDatabase.LoadAssetAtPath<Texture>(DiscordIconUri);
 //            integrationsIcon = AssetDatabase.LoadAssetAtPath<Texture>(IntegrationIconUri);
             devdogLogoIcon = AssetDatabase.LoadAssetAtPath<Texture>(DevdogLogoIconUri);
 
@@ -96,8 +100,8 @@ namespace Devdog.General2.Editors
             GUI.DrawTexture(new Rect(SingleColWidth / 2 - 32, 30, 64, 64), newsletterIcon);
             GUILayout.Space(100);
 
-            EditorGUILayout.LabelField("Never miss a thing, sign up for the newsletter.", UnityEditor.EditorStyles.boldLabel);
-            EditorGUILayout.LabelField("Get notified about updates, upgrade guides and new products.");
+            EditorGUILayout.LabelField("Join 16k+ game devs on the Devdog newsletter.", UnityEditor.EditorStyles.boldLabel);
+            EditorGUILayout.LabelField("Never miss a giveaway, update or producth launch.");
 
             GUILayout.Space(10);
 
