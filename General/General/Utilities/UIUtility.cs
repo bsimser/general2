@@ -91,6 +91,27 @@ namespace Devdog.General2.UI
             return results;
         }
 
+        /// <summary>
+        /// Used to position UI elements from screen position.
+        /// </summary>
+        /// <param name="component">A component down the hiearchy in the canvas.</param>
+        /// <param name="t">The transform to change.</param>
+        /// <param name="screenPos">The screenposition.</param>
+        public static void PositionRectTransformAtPosition(Component component, Transform t, Vector3 screenPos)
+        {
+            var canvas = component.GetComponentInParent<Canvas>().rootCanvas;
+            if (canvas.renderMode == RenderMode.ScreenSpaceCamera || canvas.renderMode == RenderMode.WorldSpace)
+            {
+                Vector2 pos;
+                RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(), screenPos, canvas.worldCamera, out pos);
+                t.position = canvas.transform.TransformPoint(pos);
+            }
+            else if (canvas.renderMode == RenderMode.ScreenSpaceOverlay)
+            {
+                t.position = screenPos;
+            }
+        }
+
         public static void InheritParentSize(Transform transform)
         {
             var r = transform.GetComponent<RectTransform>();
