@@ -123,7 +123,7 @@
   <ItemGroup>
     <Content Include="Devdog.General2.asmdef" />
     <Content Include="Helpers\AnimatorHelper.cs.meta" />
-    <Content Include="Integrations\Rewired\Devdog.General.Integration.Rewired.asmdef" />
+    <Content Include="Integrations\Rewired\Devdog.General2.Integration.Rewired.asmdef" />
     <Content Include="Windows\DraggableWindow.cs.meta" />
     <Content Include="Windows\Interfaces.meta" />
     <Content Include="Windows\Interfaces\IUIWindowInputHandler.cs.meta" />

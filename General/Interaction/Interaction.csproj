@@ -75,7 +75,6 @@
     <Compile Include="Triggers\Selectors\RaycastBestTriggerSelector.cs" />
     <Compile Include="Triggers\Trigger.cs" />
     <Compile Include="Triggers\TriggerActionInfo.cs" />
-    <Compile Include="Triggers\TriggerBase.cs" />
     <Compile Include="Triggers\TriggerEventData.cs" />
     <Compile Include="Triggers\TriggerInputHandler.cs" />
     <Compile Include="Triggers\TriggerInputHandlerBase.cs" />
@@ -118,7 +117,6 @@
     <Content Include="Triggers\Selectors\RaycastBestTriggerSelector.cs.meta" />
     <Content Include="Triggers\Trigger.cs.meta" />
     <Content Include="Triggers\TriggerActionInfo.cs.meta" />
-    <Content Include="Triggers\TriggerBase.cs.meta" />
     <Content Include="Triggers\TriggerEventData.cs.meta" />
     <Content Include="Triggers\TriggerInputHandler.cs.meta" />
     <Content Include="Triggers\TriggerInputHandlerBase.cs.meta" />
