@@ -20,11 +20,6 @@ namespace Devdog.General2
             Assert.IsNotNull(trigger, "TriggerInputHandlerBase used but no ITrigger found on object.");
         }
 
-        protected virtual void Update()
-        {
-            // Key events are handled in PlayerTriggerHandlerBase for performance reasons.
-        }
-
         public virtual void OnPointerEnter(PointerEventData eventData)
         {
             TriggerUtility.mouseOnTrigger = trigger;
