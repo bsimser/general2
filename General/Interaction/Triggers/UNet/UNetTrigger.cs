@@ -44,10 +44,10 @@ namespace Devdog.General2
             {
                 // Try to un-use the collection. If not the server will have to clean up on disconnect.
                 UnUse(_usingCharacters[i]);
-
-                Destroy(GetComponent<ITriggerInputHandler>() as UnityEngine.Component);
-                Destroy(GetComponent<ITriggerRangeHandler>() as UnityEngine.Component);
             }
+
+            Destroy(GetComponent<ITriggerInputHandler>() as UnityEngine.Component);
+            Destroy(GetComponentInChildren<ITriggerRangeHandler>() as UnityEngine.Component);
         }
         
         public bool Toggle(Character character)
