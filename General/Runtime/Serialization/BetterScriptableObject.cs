@@ -1,45 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Devdog.General2.Serialization;
 using UnityEngine;
 
 namespace Devdog.General2
 {
-    public class BetterScriptableObject : ScriptableObject, ISerializationCallbackReceiver
+    public class BetterScriptableObject : SerializedScriptableObject
     {
-        /// <summary>
-        /// Used to store the state of this scriptable object. 
-        /// Fetched through reflection to avoid people messing with it.
-        /// </summary>
-        [SerializeField]
-        [IgnoreCustomSerialization] // Ignore in custom serializer - Let unity seriarlize this.
-        private byte[] _serializedJsonString = new byte[0];
-
-        [SerializeField]
-        [IgnoreCustomSerialization] // Ignore in custom serializer - Let unity seriarlize this.
-        private List<UnityEngine.Object> _objectReferences;
-
-
-        private readonly BetterSerializationModel _serializer = new BetterSerializationModel();
-
-        public virtual void Save()
-        {
-            _serializer.Save(ref _objectReferences, ref _serializedJsonString, this);
-        }
-
-        public virtual void Load()
-        {
-            _serializer.Load(ref _objectReferences, ref _serializedJsonString, this);
-        }
-
-        public void OnBeforeSerialize()
-        {
-            Save();
-        }
-
-        public void OnAfterDeserialize()
-        {
-            Load();
-        }
+        
     }
 }

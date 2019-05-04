@@ -51,6 +51,11 @@ namespace Devdog.General2
         public static void DeserializeObject<T>(T value, byte[] json, List<UnityEngine.Object> objectReferences)
             where T: UnityEngine.Object
         {
+            if (json == null || json.Length == 0)
+            {
+                return;
+            }
+            
             UnitySerializationUtility.DeserializeUnityObject(value, ref json, ref objectReferences, DataFormat.JSON, new DeserializationContext()
             {
                 Config = _config
@@ -58,7 +63,14 @@ namespace Devdog.General2
         }
         
         public static byte[] Serialize<T>(T value, List<UnityEngine.Object> objectReferences)
-            where T: class
+        {
+            return SerializationUtility.SerializeValue(value, DataFormat.JSON, out objectReferences, new SerializationContext()
+            {
+                Config = _config
+            });
+        }
+        
+        public static byte[] Serialize(object value, List<UnityEngine.Object> objectReferences)
         {
             return SerializationUtility.SerializeValue(value, DataFormat.JSON, out objectReferences, new SerializationContext()
             {
@@ -68,10 +80,25 @@ namespace Devdog.General2
 
         public static T Deserialize<T>(byte[] json, List<UnityEngine.Object> objectReferences)
         {
+            if (json == null || json.Length == 0)
+            {
+                return default(T);
+            }
+            
             return SerializationUtility.DeserializeValue<T>(json, DataFormat.JSON, objectReferences, new DeserializationContext()
             {
                 Config = _config
             });
+        }
+        
+        public static object Deserialize(byte[] json, List<UnityEngine.Object> objectReferences)
+        {
+            if (json == null || json.Length == 0)
+            {
+                return null;
+            }
+            
+            return SerializationUtility.DeserializeValueWeak(json, DataFormat.JSON, objectReferences);
         }
     }
 }

@@ -10,7 +10,8 @@ namespace Devdog.General2
         [NonSerialized]
         private bool _isSerializing = false;
 
-        public void Save(ref List<UnityEngine.Object> objectReferences, ref byte[] json, UnityEngine.Object obj)
+        public void Save<T>(ref List<UnityEngine.Object> objectReferences, ref byte[] json, T obj)
+            where T: UnityEngine.Object
         {
             if (_isSerializing || Application.isPlaying)
                 return;
@@ -26,13 +27,14 @@ namespace Devdog.General2
             _isSerializing = false;
         }
 
-        public void Load(ref List<UnityEngine.Object> objectReferences, ref byte[] json, UnityEngine.Object obj)
+        public void Load<T>(ref List<UnityEngine.Object> objectReferences, ref byte[] json, T deserializeTo)
+            where T: UnityEngine.Object
         {
             if (_isSerializing)
                 return;
 
             _isSerializing = true;
-            JsonSerializer.DeserializeObject(obj, json, objectReferences);
+            JsonSerializer.DeserializeObject(deserializeTo, json, objectReferences);
             _isSerializing = false;
         }
     }

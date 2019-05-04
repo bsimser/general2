@@ -68,7 +68,7 @@ namespace Devdog.General2.Localization
 
         public void SetString(string key, string msg)
         {
-            if (string.IsNullOrEmpty(key))
+            if (string.IsNullOrEmpty(key) || key == LocalizationManager.NoKeyConstant)
             {
                 return;
             }
@@ -91,7 +91,7 @@ namespace Devdog.General2.Localization
 
         public void DeleteString(string key)
         {
-            if (string.IsNullOrEmpty(key))
+            if (string.IsNullOrEmpty(key) || key == LocalizationManager.NoKeyConstant)
             {
                 return;
             }
@@ -128,7 +128,7 @@ namespace Devdog.General2.Localization
 
         public void SetObject<T>(string key, T obj) where T : UnityEngine.Object
         {
-            if (string.IsNullOrEmpty(key))
+            if (string.IsNullOrEmpty(key) || key == LocalizationManager.NoKeyConstant)
             {
                 return;
             }
@@ -148,7 +148,7 @@ namespace Devdog.General2.Localization
 
         public void DeleteObject(string key)
         {
-            if (string.IsNullOrEmpty(key))
+            if (string.IsNullOrEmpty(key) || key == LocalizationManager.NoKeyConstant)
             {
                 return;
             }
