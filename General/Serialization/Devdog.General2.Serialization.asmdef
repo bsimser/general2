@@ -1,8 +1,0 @@
-{
-    "name": "Devdog.General2.Serialization",
-    "references": [
-        "Devdog.General2"
-    ],
-    "includePlatforms": [],
-    "excludePlatforms": []
-}
