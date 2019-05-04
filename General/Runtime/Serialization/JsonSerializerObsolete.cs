@@ -50,34 +50,34 @@ namespace Devdog.General2
         }
 
 
-        public static string Serialize<T>(T value, List<UnityEngine.Object> objectReferences)
-        {
-            return Serialize(value, typeof(T), objectReferences);
-        }
-
-        public static string Serialize(object value, Type type, List<UnityEngine.Object> objectReferences)
-        {
-            lock (_lockObject)
-            {
-                try
-                {
-                    fsData data;
-
-                    SetObjectReferences(objectReferences);
-                    currentRootType = type;
-                    _serializer.TrySerialize(type, value, out data).AssertSuccessWithoutWarnings();
-
-                    return fsJsonPrinter.CompressedJson(data);
-                }
-                catch (Exception e)
-                {
-                    Debug.LogError("Couldn't serialize type " + type + " - " + e.Message + "\n" + e.StackTrace);
-//                    throw;
-                }
-            }
-
-            return null;
-        }
+//        public static string Serialize<T>(T value, List<UnityEngine.Object> objectReferences)
+//        {
+//            return Serialize(value, typeof(T), objectReferences);
+//        }
+//
+//        public static string Serialize(object value, Type type, List<UnityEngine.Object> objectReferences)
+//        {
+//            lock (_lockObject)
+//            {
+//                try
+//                {
+//                    fsData data;
+//
+//                    SetObjectReferences(objectReferences);
+//                    currentRootType = type;
+//                    _serializer.TrySerialize(type, value, out data).AssertSuccessWithoutWarnings();
+//
+//                    return fsJsonPrinter.CompressedJson(data);
+//                }
+//                catch (Exception e)
+//                {
+//                    Debug.LogError("Couldn't serialize type " + type + " - " + e.Message + "\n" + e.StackTrace);
+////                    throw;
+//                }
+//            }
+//
+//            return null;
+//        }
 
         public static void DeserializeTo(object obj, Type type, string json, List<UnityEngine.Object> objectReferences)
         {

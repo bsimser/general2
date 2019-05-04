@@ -93,12 +93,17 @@ namespace Devdog.General2.Localization.Editors
                 GUI.BeginGroup(new Rect(_colWidth * (i + 1), 0f, _colWidth, (keysCount + 2) * EditorGUIUtility.singleLineHeight), (GUIStyle) "box");
 
                 int counter2 = 0;
+                EditorGUI.BeginChangeCheck();
                 counter2 += DrawLocalizationDataString(db._EditorGetAllStrings(), _stringKeys, counter2);
                 counter2 += DrawLocalizationData<Texture2D>(db._EditorGetAllObjects(), _textureKeys, counter2);
                 counter2 += DrawLocalizationData<Sprite>(db._EditorGetAllObjects(), _spriteKeys, counter2);
                 counter2 += DrawLocalizationData<AudioClip>(db._EditorGetAllObjects(), _audioClipKeys, counter2);
                 counter2 += DrawLocalizationData<UnityEngine.Object>(db._EditorGetAllObjects(), _objectKeys, counter2);
-
+                if (EditorGUI.EndChangeCheck())
+                {
+                    EditorUtility.SetDirty(db);
+                }
+                
                 GUI.EndGroup();
             }
 

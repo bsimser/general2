@@ -1,4 +1,5 @@
 #pragma warning disable 618
+#pragma warning disable 612
 
 using System;
 using System.Collections.Generic;
@@ -139,3 +140,4 @@ namespace Devdog.General2
 }
 
 #pragma warning restore 618
+#pragma warning restore 612
