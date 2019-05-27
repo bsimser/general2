@@ -36,7 +36,7 @@ namespace Devdog.General2.Editors
         protected string reviewProductUrl;
         protected string version;
 
-        private const string IconRootPath = "Assets/Devdog/General2/Editors.Internal/EditorStyles/";
+        private const string IconRootPath = "Assets/Devdog/General2/Editor/Internal/Editor/EditorStyles/";
         private const string DocumentationIconUri = IconRootPath + "Documentation.png";
         private const string VideoTutorialsIconUri = IconRootPath + "Youtube.png";
         private const string ReviewIconUri = IconRootPath + "Star.png";
