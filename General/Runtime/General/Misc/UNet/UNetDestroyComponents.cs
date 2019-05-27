@@ -1,4 +1,6 @@
-﻿using System;
+﻿#if UNITY_2017 || UNITY_2018
+
+using System;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -132,3 +134,5 @@ namespace Devdog.General2
         }
     }
 }
+
+#endif
