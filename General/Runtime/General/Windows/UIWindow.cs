@@ -74,18 +74,7 @@ namespace Devdog.General2.UI
             {
                 rectTransform.anchoredPosition = Vector2.zero;
             }
-
-#if UNITY_5_4_OR_NEWER
-            UnityEngine.SceneManagement.SceneManager.sceneLoaded += SceneLoaded;
-#endif
         }
-
-#if UNITY_5_4_OR_NEWER
-        private void SceneLoaded(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode mode)
-        {
-            LevelStart();
-        }
-#endif
 
         protected void OnDestroy()
         {
@@ -94,25 +83,12 @@ namespace Devdog.General2.UI
                 _parentWindow.OnShow -= OnShow;
                 _parentWindow.OnHide -= OnHide;
             }
-
-#if UNITY_5_4_OR_NEWER
-            UnityEngine.SceneManagement.SceneManager.sceneLoaded -= SceneLoaded;
-#endif
         }
 
         protected virtual void Start()
         {
             LevelStart();
         }
-
-#if UNITY_5_0 || UNITY_5_1 || UNITY_5_2 || UNITY_5_3
-
-        public void OnLevelWasLoaded(int level)
-        {
-            LevelStart();
-        }
-
-#endif
 
         protected virtual void LevelStart()
         {
