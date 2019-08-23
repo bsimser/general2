@@ -1,11 +1,9 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.EventSystems;
 
 namespace Devdog.General2.UI
 {
-    [RequireComponent(typeof(UIWindow))]
-    public partial class DraggableWindow : MonoBehaviour, IBeginDragHandler, IDragHandler, IPointerDownHandler
+    public class DraggableWindow : MonoBehaviour, IBeginDragHandler, IDragHandler, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
     {
         [Header("Dragging")]
         public float dragSpeed = 1.0f;
@@ -26,6 +24,22 @@ namespace Devdog.General2.UI
         /// </summary>
         public int maxForegroundIndex = 10;
 
+        [Required]
+        public UIWindow windowToDrag;
+
+
+        [Header("Cursor")]
+        public CursorIcon dragCursor;
+        private CursorIcon _cursorBefore;
+//        public Texture2D cursor;
+//        public Vector2 cursorHotspot;
+
+//        public Texture2D cursorReset;
+//        public Vector2 cursorHotspotReset;
+
+
+        
+        
         private Vector2 _dragOffset;
         private RectTransform _rectTransform;
 
@@ -36,13 +50,12 @@ namespace Devdog.General2.UI
 
 
         private UIWindow _window;
-
         public UIWindow window
         {
             get
             {
                 if (_window == null)
-                    _window = GetComponent<UIWindow>();
+                    _window = windowToDrag.GetComponent<UIWindow>();
 
                 return _window;
             }
@@ -51,7 +64,7 @@ namespace Devdog.General2.UI
 
         public void Awake()
         {
-            _rectTransform = GetComponent<RectTransform>();
+            _rectTransform = windowToDrag.GetComponent<RectTransform>();
             if (onWindowShowBringToForeground)
             {
                 window.OnShow += MoveToForeground;
@@ -67,15 +80,7 @@ namespace Devdog.General2.UI
         {
             _rectTransform.anchoredPosition = new Vector3(eventData.position.x + _dragOffset.x * dragSpeed, eventData.position.y + _dragOffset.y * dragSpeed, 0.0f);
         }
-
-        private Vector2 Clamp(Vector2 a, Vector2 min, Vector2 max)
-        {
-            a.x = Mathf.Clamp(a.x, min.x, max.x);
-            a.y = Mathf.Clamp(a.y, min.y, max.y);
-
-            return a;
-        }
-
+        
         public void OnPointerDown(PointerEventData eventData)
         {
             if (onClickBringToForeground)
@@ -89,7 +94,7 @@ namespace Devdog.General2.UI
         /// </summary>
         public virtual void MoveBack()
         {
-            transform.SetSiblingIndex(transform.GetSiblingIndex() - 1);
+            windowToDrag.transform.SetSiblingIndex(transform.GetSiblingIndex() - 1);
         }
 
         /// <summary>
@@ -97,7 +102,7 @@ namespace Devdog.General2.UI
         /// </summary>
         public virtual void MoveToBackground()
         {
-            transform.SetAsFirstSibling();
+            windowToDrag.transform.SetAsFirstSibling();
         }
 
         /// <summary>
@@ -105,7 +110,7 @@ namespace Devdog.General2.UI
         /// </summary>
         public virtual void MoveUp()
         {
-            transform.SetSiblingIndex(transform.GetSiblingIndex() + 1);
+            windowToDrag.transform.SetSiblingIndex(transform.GetSiblingIndex() + 1);
         }
 
         /// <summary>
@@ -116,8 +121,24 @@ namespace Devdog.General2.UI
             if (currentWindow == this)
                 return; // Already top window.
 
-            transform.SetSiblingIndex(maxForegroundIndex);
+            windowToDrag.transform.SetSiblingIndex(maxForegroundIndex);
             currentWindow = this;
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            if (dragCursor.texture != null)
+            {
+                dragCursor.Enable();
+            }
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            if (dragCursor.texture != null)
+            {
+                GeneralSettingsManager.instance.settings.defaultCursor.Enable();
+            }
         }
     }
 }
